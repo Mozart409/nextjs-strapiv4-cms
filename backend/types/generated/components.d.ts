@@ -74,7 +74,8 @@ export interface ElementsFooterSection extends Schema.Component {
 export interface ElementsLevelrow extends Schema.Component {
   collectionName: 'components_elements_levelrows';
   info: {
-    displayName: 'levelrow';
+    displayName: 'Level Row';
+    description: 'Displays a row of content with a title and a color.';
   };
   attributes: {
     title: Attribute.String;
@@ -466,12 +467,13 @@ export interface SectionsLeadForm extends Schema.Component {
 export interface SectionsLevelModel extends Schema.Component {
   collectionName: 'components_sections_level_models';
   info: {
-    displayName: 'LevelModel';
+    displayName: 'Level Model';
+    description: '';
   };
   attributes: {
     title: Attribute.RichText & Attribute.Required;
     content: Attribute.RichText & Attribute.Required;
-    LevelRow: Attribute.Component<'elements.levelrow', true>;
+    level_row: Attribute.Component<'elements.levelrow', true>;
   };
 }
 
