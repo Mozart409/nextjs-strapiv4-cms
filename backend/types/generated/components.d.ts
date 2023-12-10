@@ -469,8 +469,8 @@ export interface SectionsLevelModel extends Schema.Component {
     displayName: 'LevelModel';
   };
   attributes: {
-    title: Attribute.RichText;
-    content: Attribute.RichText;
+    title: Attribute.RichText & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
     LevelRow: Attribute.Component<'elements.levelrow', true>;
   };
 }
