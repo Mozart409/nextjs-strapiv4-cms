@@ -5,3 +5,5 @@ readme-images
 **/.yarn
 
 seed-data.tar.gz
+postgres-data/
+seed-data/
