@@ -3,7 +3,7 @@ import classNames from "classnames";
 function colors(type: string) {
   switch (type) {
     case "info":
-      return "bg-violet-400";
+      return "bg-blue-400";
     case "warning":
       return "bg-yellow-500";
     case "alert":
@@ -31,12 +31,13 @@ interface BannerProps {
 export default function Banner({ data }: BannerProps) {
   if (!data) return null;
   const { heading, text, type, show, link } = data;
+  console.debug(data);
   if (!show) return null;
   return (
     <div className="fixed inset-x-0 bottom-0 pointer-events-none sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
       <div
         className={classNames(
-          "pointer-events-auto flex items-center justify-between gap-x-6 py-2.5 px-6 sm:rounded-xl sm:py-3 sm:pr-3.5 sm:pl-4",
+          "pointer-events-auto flex items-center bg-blue-400 justify-between gap-x-6 py-2.5 px-6 sm:rounded-xl sm:py-3 sm:pr-3.5 sm:pl-4",
           colors(type),
         )}
       >
