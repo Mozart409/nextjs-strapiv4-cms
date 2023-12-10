@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ElementsCheckboxRow extends Schema.Component {
+  collectionName: 'components_elements_checkbox_rows';
+  info: {
+    displayName: 'CheckboxRow';
+  };
+  attributes: {
+    value: Attribute.String & Attribute.Required;
+    label: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ElementsFeatureColumn extends Schema.Component {
   collectionName: 'components_slices_feature_columns';
   info: {
@@ -60,6 +71,21 @@ export interface ElementsFooterSection extends Schema.Component {
   };
 }
 
+export interface ElementsLevelrow extends Schema.Component {
+  collectionName: 'components_elements_levelrows';
+  info: {
+    displayName: 'levelrow';
+  };
+  attributes: {
+    title: Attribute.String;
+    titleColor: Attribute.Enumeration<
+      ['orange', 'green', 'yellow', 'blue', 'red']
+    > &
+      Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+  };
+}
+
 export interface ElementsLogos extends Schema.Component {
   collectionName: 'components_elements_logos';
   info: {
@@ -110,6 +136,32 @@ export interface ElementsPlan extends Schema.Component {
       'oneToMany',
       'api::product-feature.product-feature'
     >;
+  };
+}
+
+export interface ElementsRichTextSelector extends Schema.Component {
+  collectionName: 'components_elements_rich_text_selectors';
+  info: {
+    displayName: 'RichTextSelector';
+    description: '';
+  };
+  attributes: {};
+}
+
+export interface ElementsSeminarCard extends Schema.Component {
+  collectionName: 'components_elements_seminar_cards';
+  info: {
+    displayName: 'seminar-card';
+    description: '';
+  };
+  attributes: {
+    category: Attribute.String & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    text: Attribute.String;
+    tilte: Attribute.String & Attribute.Required;
   };
 }
 
@@ -262,6 +314,27 @@ export interface SectionsBottomActions extends Schema.Component {
   };
 }
 
+export interface SectionsDangerousHtml extends Schema.Component {
+  collectionName: 'components_sections_dangerous_htmls';
+  info: {
+    displayName: 'DangerousHTML';
+  };
+  attributes: {
+    html: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface SectionsDynamicContent extends Schema.Component {
+  collectionName: 'components_sections_dynamic_contents';
+  info: {
+    displayName: 'DynamicContent';
+    description: '';
+  };
+  attributes: {
+    content: Attribute.RichText;
+  };
+}
+
 export interface SectionsFeatureColumnsGroup extends Schema.Component {
   collectionName: 'components_slices_feature_columns_groups';
   info: {
@@ -299,6 +372,17 @@ export interface SectionsFeatures extends Schema.Component {
   };
 }
 
+export interface SectionsGradientHero extends Schema.Component {
+  collectionName: 'components_sections_gradient_heroes';
+  info: {
+    displayName: 'GradientHero';
+  };
+  attributes: {
+    content: Attribute.RichText;
+    seminarcard: Attribute.Component<'elements.seminar-card', true>;
+  };
+}
+
 export interface SectionsHeading extends Schema.Component {
   collectionName: 'components_sections_headings';
   info: {
@@ -323,6 +407,19 @@ export interface SectionsHero extends Schema.Component {
     description: Attribute.String & Attribute.Required;
     picture: Attribute.Media & Attribute.Required;
     buttons: Attribute.Component<'links.button-link', true>;
+  };
+}
+
+export interface SectionsImage extends Schema.Component {
+  collectionName: 'components_sections_images';
+  info: {
+    displayName: 'Image';
+  };
+  attributes: {
+    picture: Attribute.Media & Attribute.Required;
+    link: Attribute.Component<'links.link'>;
+    small_image: Attribute.Boolean & Attribute.DefaultTo<false>;
+    image_border: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -358,6 +455,18 @@ export interface SectionsLeadForm extends Schema.Component {
   };
 }
 
+export interface SectionsLevelModel extends Schema.Component {
+  collectionName: 'components_sections_level_models';
+  info: {
+    displayName: 'LevelModel';
+  };
+  attributes: {
+    title: Attribute.RichText;
+    content: Attribute.RichText;
+    LevelRow: Attribute.Component<'elements.levelrow', true>;
+  };
+}
+
 export interface SectionsPricing extends Schema.Component {
   collectionName: 'components_sections_pricings';
   info: {
@@ -380,6 +489,17 @@ export interface SectionsRichText extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
+  };
+}
+
+export interface SectionsSeminarGroup extends Schema.Component {
+  collectionName: 'components_sections_seminar_groups';
+  info: {
+    displayName: 'SeminarGroup';
+  };
+  attributes: {
+    content: Attribute.RichText;
+    seminarcard: Attribute.Component<'elements.seminar-card', true>;
   };
 }
 
@@ -477,13 +597,17 @@ export interface SharedVideoEmbed extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'elements.checkbox-row': ElementsCheckboxRow;
       'elements.feature-column': ElementsFeatureColumn;
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature': ElementsFeature;
       'elements.footer-section': ElementsFooterSection;
+      'elements.levelrow': ElementsLevelrow;
       'elements.logos': ElementsLogos;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.plan': ElementsPlan;
+      'elements.rich-text-selector': ElementsRichTextSelector;
+      'elements.seminar-card': ElementsSeminarCard;
       'elements.testimonial': ElementsTestimonial;
       'layout.footer': LayoutFooter;
       'layout.logo': LayoutLogo;
@@ -494,15 +618,21 @@ declare module '@strapi/types' {
       'links.social-link': LinksSocialLink;
       'meta.metadata': MetaMetadata;
       'sections.bottom-actions': SectionsBottomActions;
+      'sections.dangerous-html': SectionsDangerousHtml;
+      'sections.dynamic-content': SectionsDynamicContent;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.features': SectionsFeatures;
+      'sections.gradient-hero': SectionsGradientHero;
       'sections.heading': SectionsHeading;
       'sections.hero': SectionsHero;
+      'sections.image': SectionsImage;
       'sections.large-video': SectionsLargeVideo;
       'sections.lead-form': SectionsLeadForm;
+      'sections.level-model': SectionsLevelModel;
       'sections.pricing': SectionsPricing;
       'sections.rich-text': SectionsRichText;
+      'sections.seminar-group': SectionsSeminarGroup;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

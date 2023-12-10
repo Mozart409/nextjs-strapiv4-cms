@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_dangerous_htmls",
+  "info": {
+    "displayName": "DangerousHTML"
+  },
+  "options": {},
+  "attributes": {
+    "html": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

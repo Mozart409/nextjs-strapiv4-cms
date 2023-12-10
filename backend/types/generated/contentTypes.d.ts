@@ -983,17 +983,23 @@ export interface ApiPagePage extends Schema.CollectionType {
       }>;
     contentSections: Attribute.DynamicZone<
       [
-        'sections.hero',
         'sections.bottom-actions',
+        'sections.dangerous-html',
+        'sections.dynamic-content',
         'sections.feature-columns-group',
         'sections.feature-rows-group',
-        'sections.testimonials-group',
-        'sections.large-video',
-        'sections.rich-text',
-        'sections.pricing',
-        'sections.lead-form',
         'sections.features',
-        'sections.heading'
+        'sections.gradient-hero',
+        'sections.heading',
+        'sections.hero',
+        'sections.image',
+        'sections.large-video',
+        'sections.lead-form',
+        'sections.level-model',
+        'sections.pricing',
+        'sections.rich-text',
+        'sections.seminar-group',
+        'sections.testimonials-group'
       ]
     > &
       Attribute.SetPluginOptions<{

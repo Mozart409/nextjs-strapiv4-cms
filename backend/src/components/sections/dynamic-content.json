@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_dynamic_contents",
+  "info": {
+    "displayName": "DynamicContent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

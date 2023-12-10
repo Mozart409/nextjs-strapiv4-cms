@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_level_models",
+  "info": {
+    "displayName": "LevelModel"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "LevelRow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.levelrow"
+    }
+  }
+}
