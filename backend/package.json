@@ -11,11 +11,12 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.12.5",
-    "@strapi/plugin-seo": "^1.8.0",
-    "@strapi/plugin-users-permissions": "4.12.5",
-    "@strapi/strapi": "4.12.5",
-    "better-sqlite3": "8.4.0"
+    "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-seo": "^1.9.8",
+    "@strapi/plugin-users-permissions": "4.15.5",
+    "@strapi/strapi": "4.15.5",
+    "knex": "^3.0.1",
+    "pg": "^8.11.3"
   },
   "author": {
     "name": "A Strapi developer"
