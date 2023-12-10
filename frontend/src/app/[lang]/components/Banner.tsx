@@ -31,7 +31,6 @@ interface BannerProps {
 export default function Banner({ data }: BannerProps) {
   if (!data) return null;
   const { heading, text, type, show, link } = data;
-  console.debug(data);
   if (!show) return null;
   return (
     <div className="fixed inset-x-0 bottom-0 pointer-events-none sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
