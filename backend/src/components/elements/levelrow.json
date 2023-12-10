@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_levelrows",
   "info": {
-    "displayName": "levelrow"
+    "displayName": "Level Row",
+    "description": "Displays a row of content with a title and a color."
   },
   "options": {},
   "attributes": {
