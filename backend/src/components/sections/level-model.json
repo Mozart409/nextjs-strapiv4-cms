@@ -2,7 +2,7 @@
   "collectionName": "components_sections_level_models",
   "info": {
     "displayName": "Level Model",
-    "description": ""
+    "description": "Level Model"
   },
   "options": {},
   "attributes": {
@@ -14,10 +14,11 @@
       "type": "richtext",
       "required": true
     },
-    "level_row": {
+    "levelRow": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.levelrow"
+      "component": "elements.level-row",
+      "required": true
     }
   }
 }

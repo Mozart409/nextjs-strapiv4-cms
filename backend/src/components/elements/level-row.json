@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_elements_levelrows",
+  "collectionName": "components_elements_level_rows",
   "info": {
     "displayName": "Level Row",
     "description": "Displays a row of content with a title and a color."
@@ -12,6 +12,7 @@
     "titleColor": {
       "type": "enumeration",
       "required": true,
+      "default": "green",
       "enum": ["orange", "green", "yellow", "blue", "red"]
     },
     "content": {
