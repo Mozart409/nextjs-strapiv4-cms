@@ -3,9 +3,9 @@
 @tailwind utilities;
 @import "react-slideshow-image/dist/styles.css";
 
-body {
+/* body {
   @apply dark:bg-black
-}
+} */
 
 
 /******************************************* 
@@ -133,4 +133,80 @@ body {
 
 .react-slideshow-container [aria-label="Next Slide"] {
   margin-right: 1rem;
+}
+
+
+
+/******************************************* 
+  Custom Styles
+
+*******************************************/
+
+
+.with-arrow:after {
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%206a.5.5%200%200%200%200%201V6zM12.854.646a.5.5%200%200%200-.708.708l.708-.708zM18%206.5l.354.354a.5.5%200%200%200%200-.708L18%206.5zm-5.854%205.146a.5.5%200%200%200%20.708.708l-.708-.708zM1%207h16.5V6H1v1zm16.646-.854l-5.5%205.5.708.708%205.5-5.5-.708-.708zm-5.5-4.792l2.75%202.75.708-.708-2.75-2.75-.708.708zm2.75%202.75l2.75%202.75.708-.708-2.75-2.75-.708.708z%22%20fill%3D%22%231264A3%22%2F%3E%3C%2Fsvg%3E);
+  content: '';
+  width: 19px;
+  height: 13px;
+  display: inline-block;
+  margin-left: 0.5em;
+}
+
+.list-check {
+  list-style-image: url(/check32.png);
+}
+
+
+.cssgradient {
+  background: linear-gradient(90deg, #00ffbd, #00a3ff);
+  /* background: linear-gradient(90deg, #34d399, #3b82f6); */
+  background-size: 400% 400%;
+  -webkit-animation: GredientAnimation 20s ease infinite;
+  -moz-animation: GredientAnimation 20s ease infinite;
+  -o-animation: GredientAnimation 20s ease infinite;
+  animation: GredientAnimation 20s ease infinite;
+}
+@-webkit-keyframes GredientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 51%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes GredientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 51%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes GredientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 51%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes GredientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 51%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
