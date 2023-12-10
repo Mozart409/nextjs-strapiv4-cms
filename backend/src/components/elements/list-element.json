@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_elements_list_elements",
+  "info": {
+    "displayName": "List Element"
+  },
+  "options": {},
+  "attributes": {
+    "string": {
+      "type": "string",
+      "required": true
+    },
+    "titleColor": {
+      "type": "enumeration",
+      "enum": [
+        "orange",
+        "green",
+        "yellow",
+        "blue",
+        "red"
+      ],
+      "default": "orange",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

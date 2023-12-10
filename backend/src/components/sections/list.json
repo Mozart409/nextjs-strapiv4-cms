@@ -1,8 +1,9 @@
 {
-  "collectionName": "components_sections_level_models",
+  "collectionName": "components_sections_lists",
   "info": {
-    "displayName": "Level Model",
-    "description": "Level Model"
+    "displayName": "list",
+    "icon": "layer",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,10 +15,10 @@
       "type": "richtext",
       "required": true
     },
-    "levelRow": {
+    "listElement": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.level-row",
+      "component": "elements.list-element",
       "required": true
     }
   }
