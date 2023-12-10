@@ -27,19 +27,19 @@ interface PriceProps {
 
 export default function Pricing({ data }: PriceProps) {
   return (
-    <section className="py-20 dark:bg-black dark:text-gray-100 m:py-12 lg:py-24">
-      <div className="container px-4 mx-auto ">
-        <div className="max-w-2xl mx-auto mb-16 text-center">
+    <section className="py-20 lg:py-24 dark:text-gray-100 dark:bg-black m:py-12">
+      <div className="container px-4 mx-auto">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="font-bold tracking-wider uppercase dark:text-violet-400">
             Pricing
           </span>
           <h2 className="text-4xl font-bold lg:text-5xl">{data.title}</h2>
         </div>
-        <div className="flex flex-wrap items-stretch max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-stretch mx-auto max-w-5xl">
           {data.plans.map((plan: Plan) => (
             <div
               key={plan.id}
-              className="w-full p-4 mb-8  sm:mx-40 lg:mx-0 lg:w-1/3 lg:mb-0"
+              className="p-4 mb-8 w-full sm:mx-40 lg:mx-0 lg:mb-0 lg:w-1/3"
             >
               <div
                 className={`flex flex-col p-6 space-y-6 rounded shadow sm:p-8 min-h-[475px] min-w-[300px] ${
@@ -47,8 +47,8 @@ export default function Pricing({ data }: PriceProps) {
                 }`}
               >
                 <div className="space-y-2">
-                  <h4 className="text-3xl font-bold mb-6">{plan.name}</h4>
-                  <span className="text-6xl font-bold ">
+                  <h4 className="mb-6 text-3xl font-bold">{plan.name}</h4>
+                  <span className="text-6xl font-bold">
                     {plan.price}
                     <span
                       className={`ml-1 text-sm tracking-wid ${

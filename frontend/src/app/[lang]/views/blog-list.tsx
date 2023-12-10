@@ -52,7 +52,7 @@ export default function PostList({
 }) {
   return (
     <section className="container p-6 mx-auto space-y-6 sm:space-y-12">
-      <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 justify-center sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => {
           const imageUrl = getStrapiMedia(
             article.attributes.cover.data?.attributes.url,
@@ -69,25 +69,25 @@ export default function PostList({
             <Link
               href={`/blog/${category?.slug}/${article.attributes.slug}`}
               key={article.id}
-              className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900 lg:w-[300px] xl:min-w-[375px] rounded-2xl overflow-hidden shadow-lg"
+              className="overflow-hidden mx-auto max-w-sm rounded-2xl shadow-lg dark:bg-gray-900 hover:no-underline focus:no-underline group lg:w-[300px] xl:min-w-[375px]"
             >
               {imageUrl && (
                 <Image
                   alt="presentation"
                   width="240"
                   height="240"
-                  className="object-cover w-full h-44 "
+                  className="object-cover w-full h-44"
                   src={imageUrl}
                 />
               )}
-              <div className="p-6 space-y-2 relative">
+              <div className="relative p-6 space-y-2">
                 {avatarUrl && (
                   <Image
                     alt="avatar"
                     width="80"
                     height="80"
                     src={avatarUrl}
-                    className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
+                    className="object-cover absolute right-4 -top-8 w-16 h-16 rounded-full"
                   />
                 )}
 

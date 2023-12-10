@@ -15,43 +15,43 @@ const ColorWrapper: FC<{ children: ReactNode; title_color: "black" | "orange" | 
     switch (title_color) {
       case "black":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-black">
+          <span className="prose prose-lg prose-headings:text-black xl:prose-2xl">
             {children}
           </span>
         );
       case "orange":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-orange-500">
+          <span className="prose prose-lg prose-headings:text-orange-500 xl:prose-2xl">
             {children}
           </span>
         );
       case "green":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-green-500">
+          <span className="prose prose-lg prose-headings:text-green-500 xl:prose-2xl">
             {children}
           </span>
         );
       case "yellow":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-yellow-500">
+          <span className="prose prose-lg prose-headings:text-yellow-500 xl:prose-2xl">
             {children}
           </span>
         );
       case "blue":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-blue-500">
+          <span className="prose prose-lg prose-headings:text-blue-500 xl:prose-2xl">
             {children}
           </span>
         );
       case "red":
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-red-500">
+          <span className="prose prose-lg prose-headings:text-red-500 xl:prose-2xl">
             {children}
           </span>
         );
       default:
         return (
-          <span className="prose prose-lg xl:prose-2xl prose-headings:text-black">
+          <span className="prose prose-lg prose-headings:text-black xl:prose-2xl">
             {children}
           </span>
         );
@@ -81,7 +81,7 @@ const HeadingWrapper: FC<{ children: ReactNode; type: "h1" | "h2" | "h3" | "h4" 
 
 const Heading: FC<Props> = ({ data }) => {
   return (
-    <div className="container mx-auto py-4 space-y-2 text-center">
+    <div className="container py-4 mx-auto space-y-2 text-center">
       <ColorWrapper key={data.id} title_color={data.title_color}>
         <HeadingWrapper type={data.title_type}>{data.heading}</HeadingWrapper>
         <p>{data.description}</p>

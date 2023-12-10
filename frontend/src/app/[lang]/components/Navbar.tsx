@@ -68,28 +68,28 @@ export default function Navbar({
     setMobileMenuOpen(false);
   };
   return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
-      <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
+    <div className="p-4 dark:text-gray-100 dark:bg-black">
+      <div className="container flex justify-between px-0 mx-auto h-16 sm:px-6">
         <Logo src={logoUrl}>
           {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
         </Logo>
 
-        <div className="items-center flex-shrink-0 hidden lg:flex">
-          <ul className="items-stretch hidden space-x-3 lg:flex">
+        <div className="hidden flex-shrink-0 items-center lg:flex">
+          <ul className="hidden items-stretch space-x-3 lg:flex">
             {links.map((item: NavLink) => <NavLink key={item.id} {...item} />)}
           </ul>
         </div>
 
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto dark:bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+          <Dialog.Panel className="overflow-y-auto fixed inset-y-0 z-50 py-6 px-6 w-full sm:max-w-sm sm:ring-1 dark:bg-black rtl:left-0 ltr:right-0 sm:ring-gray-100/10">
+            <div className="flex justify-between items-center">
+              <a href="#" className="p-1.5 -m-1.5">
                 <span className="sr-only">Strapi</span>
                 {logoUrl
                   && (
                     <img
-                      className="h-8 w-auto"
+                      className="w-auto h-8"
                       src={logoUrl}
                       alt=""
                     />
@@ -97,16 +97,16 @@ export default function Navbar({
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-100"
+                className="p-2.5 -m-2.5 text-gray-100 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="w-6 h-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
+            <div className="flow-root mt-6">
               <div className="-my-6 divide-y divide-gray-200/10">
-                <div className="space-y-2 py-6">
+                <div className="py-6 space-y-2">
                   {links.map((item) => (
                     <MobileNavLink
                       key={item.id}
@@ -123,7 +123,7 @@ export default function Navbar({
           className="p-4 lg:hidden"
           onClick={() => setMobileMenuOpen(true)}
         >
-          <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true" />
+          <Bars3Icon className="w-7 h-7 text-gray-100" aria-hidden="true" />
         </button>
       </div>
     </div>
