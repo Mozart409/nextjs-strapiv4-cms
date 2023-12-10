@@ -22,6 +22,7 @@
     "metadata": {
       "type": "component",
       "repeatable": false,
+      "required": true,
       "component": "meta.metadata",
       "pluginOptions": {
         "i18n": {
@@ -33,9 +34,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "pluginOptions": {
         "i18n": {
           "localized": true
