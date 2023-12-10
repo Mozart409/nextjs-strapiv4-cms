@@ -4,7 +4,8 @@ interface Props {
   data: {
     __component: string;
     id: number;
-    title: string;
+    heading: string;
+    description: string;
     title_color: "black" | "orange" | "green" | "yellow" | "blue" | "red";
     title_type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   };
@@ -80,11 +81,12 @@ const HeadingWrapper: FC<{ children: ReactNode; type: "h1" | "h2" | "h3" | "h4" 
 
 const Heading: FC<Props> = ({ data }) => {
   return (
-    <>
+    <div className="container mx-auto py-4 space-y-2 text-center">
       <ColorWrapper key={data.id} title_color={data.title_color}>
-        <HeadingWrapper type={data.title_type}>{data.title}</HeadingWrapper>
+        <HeadingWrapper type={data.title_type}>{data.heading}</HeadingWrapper>
+        <p>{data.description}</p>
       </ColorWrapper>
-    </>
+    </div>
   );
 };
 
