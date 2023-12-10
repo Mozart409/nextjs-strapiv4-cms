@@ -391,6 +391,14 @@ export interface SectionsHeading extends Schema.Component {
   attributes: {
     heading: Attribute.String & Attribute.Required;
     description: Attribute.String;
+    title_color: Attribute.Enumeration<
+      ['black', 'orange', 'green', 'yellow', 'blue', 'red']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'black'>;
+    title_type: Attribute.Enumeration<['h1', 'h2', 'h3', 'h4', 'h5', 'h6']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'h1'>;
   };
 }
 
