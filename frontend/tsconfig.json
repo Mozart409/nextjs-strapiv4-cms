@@ -32,7 +32,8 @@
     "src/app/blog-3/page.tsx",
     "src/app/[lang]/components/ErrorBoundry.jsx",
     "src/app/[lang]/components/ErrorBoundary.tsx",
-    "src/app/global-error.tsx"
+    "src/app/global-error.tsx",
+    "global.d.ts"
   ],
   "exclude": ["node_modules"]
 }

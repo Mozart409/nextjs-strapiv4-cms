@@ -9,7 +9,8 @@
     "lint2": "next lint && biome lint .",
     "lint": "biome lint .",
     "fmt:tailwind": "rustywind --write .",
-    "fmt": "biome format ."
+    "fmt": "biome format .",
+    "t": "tsc -w"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
