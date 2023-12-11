@@ -1,23 +1,18 @@
 {
   "collectionName": "components_elements_list_elements",
   "info": {
-    "displayName": "List Element"
+    "displayName": "List Element",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "string": {
+    "title": {
       "type": "string",
       "required": true
     },
     "titleColor": {
       "type": "enumeration",
-      "enum": [
-        "orange",
-        "green",
-        "yellow",
-        "blue",
-        "red"
-      ],
+      "enum": ["orange", "green", "yellow", "blue", "red"],
       "default": "orange",
       "required": true
     },

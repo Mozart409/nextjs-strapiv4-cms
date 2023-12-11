@@ -1,9 +1,9 @@
 {
   "collectionName": "components_sections_lists",
   "info": {
-    "displayName": "list",
+    "displayName": "List",
     "icon": "layer",
-    "description": ""
+    "description": "A list of items with a title and content."
   },
   "options": {},
   "attributes": {
