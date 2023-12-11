@@ -5,12 +5,27 @@ export async function getPageBySlug(slug: string, lang: string) {
 
   const path = `/pages`;
   const urlParamsObject = {
+    populate: {
+      list: {
+        populate: true,
+        listElement: {
+          populate: true,
+        },
+      },
+    },
     filters: { slug },
     locale: lang,
-    populate: [
-      "sections.level-model.level_row",
-    ],
   };
   const options = { headers: { Authorization: `Bearer ${token}` } };
   return await fetchAPI(path, urlParamsObject, options);
 }
+
+/* [
+      "list",
+      "listElement",
+      "listElements",
+      "list.listElement",
+      "list.listElements",
+      "lists.listElement",
+      "lists.listElements",
+    ], */

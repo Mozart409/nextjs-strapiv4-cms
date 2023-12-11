@@ -2,7 +2,7 @@ import Email from "../components/Email";
 import Features from "../components/Features";
 import Heading from "../components/Heading";
 import Hero from "../components/Hero";
-import LevelModel from "../components/LevelRow";
+import List from "../components/List";
 import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
 
@@ -21,8 +21,8 @@ export function sectionRenderer(section: any, index: number) {
       return <Email key={index} data={section} />;
     case "sections.heading":
       return <Heading key={index} data={section} />;
-    case "sections.level-model":
-      return <LevelModel key={index} data={section} />;
+    case "sections.list":
+      return <List key={index} data={section} />;
     default:
       return null;
   }

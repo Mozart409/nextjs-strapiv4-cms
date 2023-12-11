@@ -1,13 +1,22 @@
 import MarkdownRenderer from "../utils/MarkdownRenderer";
 
-interface LevelModelProps {
+interface ListElement {
+  id: string;
+  title: string;
+  title_color: "orange" | "green" | "yellow" | "blue" | "red";
+  content: string;
+}
+
+interface ListProps {
   data: {
+    id: string;
     title: string;
     content: string;
+    listElement: ListElement[];
   };
 }
 
-export default function LevelModel({ data }: LevelModelProps) {
+export default function List({ data }: ListProps) {
   return (
     <>
       <div className="mx-auto py-6 text-center lg:text-left">
@@ -27,7 +36,10 @@ export default function LevelModel({ data }: LevelModelProps) {
           }
         </div>
       </div>
-      {console.debug(data)}
+      <div className="container mx-auto px-4 sm:px-8 break-words">
+        <pre>{JSON.stringify(data,null,2)}</pre>
+        {/* {console.log(data)} */}
+      </div>
     </>
   );
 }
