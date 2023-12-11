@@ -34,6 +34,10 @@ const populate = {
       submitButton: {
         populate: true,
       },
+      list: {
+        populate: true,
+        populate: ["listElement", "listElements", "list_element"],
+      },
     },
   },
   seo: {
@@ -50,6 +54,8 @@ module.exports = (config, { strapi }) => {
       filters: { slug: ctx.query.filters.slug },
       locale: ctx.query.locale,
     };
+
+    console.debug("populate", populate.contentSections);
 
     console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
