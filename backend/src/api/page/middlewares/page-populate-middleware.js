@@ -36,7 +36,6 @@ const populate = {
       },
       list: {
         populate: true,
-        populate: ["listElement", "listElements", "list_element"],
       },
     },
   },
@@ -54,8 +53,6 @@ module.exports = (config, { strapi }) => {
       filters: { slug: ctx.query.filters.slug },
       locale: ctx.query.locale,
     };
-
-    console.debug("populate", populate.contentSections);
 
     console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 

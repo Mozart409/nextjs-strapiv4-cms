@@ -995,7 +995,7 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.image',
         'sections.large-video',
         'sections.lead-form',
-        'sections.level-model',
+        'sections.list',
         'sections.pricing',
         'sections.rich-text',
         'sections.seminar-group',

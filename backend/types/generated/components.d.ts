@@ -71,18 +71,19 @@ export interface ElementsFooterSection extends Schema.Component {
   };
 }
 
-export interface ElementsLevelrow extends Schema.Component {
-  collectionName: 'components_elements_levelrows';
+export interface ElementsListElement extends Schema.Component {
+  collectionName: 'components_elements_list_elements';
   info: {
-    displayName: 'Level Row';
-    description: 'Displays a row of content with a title and a color.';
+    displayName: 'List Element';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     titleColor: Attribute.Enumeration<
       ['orange', 'green', 'yellow', 'blue', 'red']
     > &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.DefaultTo<'orange'>;
     content: Attribute.RichText & Attribute.Required;
   };
 }
@@ -110,7 +111,8 @@ export interface ElementsNotificationBanner extends Schema.Component {
   };
   attributes: {
     type: Attribute.Enumeration<['alert', 'info', 'warning']> &
-      Attribute.Required;
+      Attribute.Required &
+      Attribute.DefaultTo<'alert'>;
     heading: Attribute.String & Attribute.Required;
     text: Attribute.Text & Attribute.Required;
     show: Attribute.Boolean & Attribute.DefaultTo<false>;
@@ -239,7 +241,8 @@ export interface LinksButtonLink extends Schema.Component {
     url: Attribute.String;
     newTab: Attribute.Boolean & Attribute.DefaultTo<false>;
     text: Attribute.String;
-    type: Attribute.Enumeration<['primary', 'secondary']>;
+    type: Attribute.Enumeration<['primary', 'secondary']> &
+      Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -253,7 +256,8 @@ export interface LinksButton extends Schema.Component {
   };
   attributes: {
     text: Attribute.String;
-    type: Attribute.Enumeration<['primary', 'secondary']>;
+    type: Attribute.Enumeration<['primary', 'secondary']> &
+      Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -464,16 +468,18 @@ export interface SectionsLeadForm extends Schema.Component {
   };
 }
 
-export interface SectionsLevelModel extends Schema.Component {
-  collectionName: 'components_sections_level_models';
+export interface SectionsList extends Schema.Component {
+  collectionName: 'components_sections_lists';
   info: {
-    displayName: 'Level Model';
-    description: '';
+    displayName: 'List';
+    icon: 'layer';
+    description: 'A list of items with a title and content.';
   };
   attributes: {
     title: Attribute.RichText & Attribute.Required;
     content: Attribute.RichText & Attribute.Required;
-    level_row: Attribute.Component<'elements.levelrow', true>;
+    listElement: Attribute.Component<'elements.list-element', true> &
+      Attribute.Required;
   };
 }
 
@@ -612,7 +618,7 @@ declare module '@strapi/types' {
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature': ElementsFeature;
       'elements.footer-section': ElementsFooterSection;
-      'elements.levelrow': ElementsLevelrow;
+      'elements.list-element': ElementsListElement;
       'elements.logos': ElementsLogos;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.plan': ElementsPlan;
@@ -639,7 +645,7 @@ declare module '@strapi/types' {
       'sections.image': SectionsImage;
       'sections.large-video': SectionsLargeVideo;
       'sections.lead-form': SectionsLeadForm;
-      'sections.level-model': SectionsLevelModel;
+      'sections.list': SectionsList;
       'sections.pricing': SectionsPricing;
       'sections.rich-text': SectionsRichText;
       'sections.seminar-group': SectionsSeminarGroup;
