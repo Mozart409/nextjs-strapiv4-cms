@@ -9,4 +9,9 @@ module.exports = ({ env }) => ({
       playgroundAlways: false,
     },
   },
+  "strapi-plugin-populate-deep": {
+    config: {
+      defaultDepth: 7, // Default is 5
+    },
+  },
 });
