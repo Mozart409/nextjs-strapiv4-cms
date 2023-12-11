@@ -20,10 +20,8 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary"
-      ]
+      "default": "primary",
+      "enum": ["primary", "secondary"]
     }
   }
 }

@@ -13,6 +13,7 @@
     },
     "type": {
       "type": "enumeration",
+      "default": "primary",
       "enum": ["primary", "secondary"]
     }
   }
