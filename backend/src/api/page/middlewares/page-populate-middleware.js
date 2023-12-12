@@ -37,6 +37,9 @@ const populate = {
       list: {
         populate: true,
       },
+      listElement: {
+        populate: true,
+      },
       seminarCard: {
         populate: {
           image: {
