@@ -1,5 +1,6 @@
 import Email from "../components/Email";
 import Features from "../components/Features";
+import GradientHero from "../components/GradientHero";
 import Heading from "../components/Heading";
 import Hero from "../components/Hero";
 import List from "../components/List";
@@ -23,6 +24,8 @@ export function sectionRenderer(section: any, index: number) {
       return <Heading key={index} data={section} />;
     case "sections.list":
       return <List key={index} data={section} />;
+    case "sections.gradient-hero":
+      return <GradientHero key={index} data={section} />;
     default:
       return null;
   }

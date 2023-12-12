@@ -37,7 +37,7 @@ export default function List({ data }: ListProps) {
         </div>
       </div>
       <div className="container mx-auto px-4 sm:px-8 break-words">
-        <pre>{JSON.stringify(data,null,2)}</pre>
+        {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
         {/* {console.log(data)} */}
       </div>
     </>

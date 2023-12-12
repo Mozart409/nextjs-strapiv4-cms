@@ -9,7 +9,7 @@ export default function MarkdownRenderer({ text }: MarkDownProps) {
   return (
     <>
       <Markdown
-        className="prose prose-lg mx-auto md:prose-lg lg:prose-2xl prose-headings:underline prose-a:text-primary-600"
+        className="prose prose-lg md:prose-lg lg:prose-2xl prose-headings:underline prose-a:text-primary-600"
         children={text}
         remarkPlugins={[remarkGfm]}
       />
