@@ -154,17 +154,16 @@ export interface ElementsRichTextSelector extends Schema.Component {
 export interface ElementsSeminarCard extends Schema.Component {
   collectionName: 'components_elements_seminar_cards';
   info: {
-    displayName: 'seminar-card';
-    description: '';
+    displayName: 'SeminarCard';
+    description: 'A single card describing a seminar';
   };
   attributes: {
+    tilte: Attribute.String & Attribute.Required;
+    text: Attribute.String;
     category: Attribute.String & Attribute.Required;
-    content: Attribute.RichText & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
     url: Attribute.String & Attribute.Required;
     newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    text: Attribute.String;
-    tilte: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -384,7 +383,7 @@ export interface SectionsGradientHero extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
-    seminarcard: Attribute.Component<'elements.seminar-card', true>;
+    seminarCard: Attribute.Component<'elements.seminar-card', true>;
   };
 }
 
@@ -515,7 +514,7 @@ export interface SectionsSeminarGroup extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
-    seminarcard: Attribute.Component<'elements.seminar-card', true>;
+    seminarCard: Attribute.Component<'elements.seminar-card', true>;
   };
 }
 

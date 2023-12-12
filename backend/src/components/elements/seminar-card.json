@@ -1,25 +1,20 @@
 {
   "collectionName": "components_elements_seminar_cards",
   "info": {
-    "displayName": "seminar-card",
-    "description": ""
+    "displayName": "SeminarCard",
+    "description": "A single card describing a seminar"
   },
   "options": {},
   "attributes": {
-    "category": {
+    "tilte": {
       "type": "string",
       "required": true
     },
-    "content": {
-      "type": "richtext",
-      "required": true
+    "text": {
+      "type": "string"
     },
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true,
+    "category": {
+      "type": "string",
       "required": true
     },
     "url": {
@@ -31,12 +26,11 @@
       "default": false,
       "required": true
     },
-    "text": {
-      "type": "string"
-    },
-    "tilte": {
-      "type": "string",
-      "required": true
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
     }
   }
 }

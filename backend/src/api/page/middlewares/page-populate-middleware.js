@@ -37,6 +37,13 @@ const populate = {
       list: {
         populate: true,
       },
+      seminarCard: {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
     },
   },
   seo: {
@@ -54,8 +61,9 @@ module.exports = (config, { strapi }) => {
       locale: ctx.query.locale,
     };
 
-    console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
+    //  console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
+    console.debug("populate", populate.contentSections);
     await next();
   };
 };

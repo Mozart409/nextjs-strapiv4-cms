@@ -8,7 +8,7 @@
     "content": {
       "type": "richtext"
     },
-    "seminarcard": {
+    "seminarCard": {
       "type": "component",
       "repeatable": true,
       "component": "elements.seminar-card"
