@@ -65,7 +65,7 @@ export default async function RootLayout({
 
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
-  if (!navbar || !footer || !notificationBanner) {
+  if (!navbar || !footer) {
     return (
       <html lang={params.lang}>
         <body>
@@ -90,17 +90,21 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
-        <Navbar
-          links={navbar.links}
-          logoUrl={navbarLogoUrl}
-          logoText={navbar.navbarLogo.logoText}
-        />
+        {navbarLogoUrl
+          ? (
+            <Navbar
+              links={navbar.links}
+              logoUrl={navbarLogoUrl}
+              logoText={navbar.navbarLogo.logoText}
+            />
+          )
+          : null}
 
         <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
           {children}
         </main>
 
-        <Banner data={notificationBanner} />
+        {notificationBanner ? <Banner data={notificationBanner} /> : null}
 
         <Footer
           logoUrl={footerLogoUrl}
