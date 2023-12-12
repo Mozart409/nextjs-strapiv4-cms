@@ -7,14 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "richtext",
-      "required": true
-    },
-    "content": {
-      "type": "richtext",
-      "required": true
-    },
     "listElement": {
       "type": "component",
       "repeatable": true,

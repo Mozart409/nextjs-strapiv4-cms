@@ -79,11 +79,6 @@ export interface ElementsListElement extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    titleColor: Attribute.Enumeration<
-      ['orange', 'green', 'yellow', 'blue', 'red']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'orange'>;
     content: Attribute.RichText & Attribute.Required;
   };
 }
@@ -475,8 +470,6 @@ export interface SectionsList extends Schema.Component {
     description: 'A list of items with a title and content.';
   };
   attributes: {
-    title: Attribute.RichText & Attribute.Required;
-    content: Attribute.RichText & Attribute.Required;
     listElement: Attribute.Component<'elements.list-element', true> &
       Attribute.Required;
   };
