@@ -65,6 +65,20 @@ export default async function RootLayout({
 
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
+  if (!navbar || !footer || !notificationBanner) {
+    return (
+      <html lang={params.lang}>
+        <body>
+          <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8">
+              {children}
+            </div>
+          </main>
+        </body>
+      </html>
+    );
+  }
+
   const navbarLogoUrl = getStrapiMedia(
     navbar.navbarLogo.logoImg.data.attributes.url,
   );
@@ -82,7 +96,7 @@ export default async function RootLayout({
           logoText={navbar.navbarLogo.logoText}
         />
 
-        <main className="min-h-screen dark:text-gray-100 dark:bg-black">
+        <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
           {children}
         </main>
 
