@@ -69,7 +69,7 @@ export default async function RootLayout({
     return (
       <html lang={params.lang}>
         <body>
-          <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
+          <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
             <div className="px-4 sm:px-6 lg:px-8">
               {children}
             </div>
@@ -100,7 +100,7 @@ export default async function RootLayout({
           )
           : null}
 
-        <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
+        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
           {children}
         </main>
 

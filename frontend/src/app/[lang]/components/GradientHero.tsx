@@ -62,7 +62,7 @@ const SingleCard = ({
   return (
     <div
       key={id}
-      className="flex h-full flex-col overflow-y-auto rounded-lg shadow-lg"
+      className="flex overflow-y-auto flex-col h-full rounded-lg shadow-lg"
     >
       <Link
         href={url}
@@ -74,7 +74,7 @@ const SingleCard = ({
           {imageUrl
             ? (
               <Image
-                className="h-96 w-full object-cover"
+                className="object-cover w-full h-96"
                 src={imageUrl}
                 width={1000}
                 height={700}
@@ -83,12 +83,12 @@ const SingleCard = ({
             )
             : null}
           <div className="absolute bottom-0 left-0 w-full">
-            <div className="mx-auto flex flex-1 flex-col justify-between bg-white py-2 px-6">
+            <div className="flex flex-col flex-1 justify-between py-2 px-6 mx-auto bg-white">
               <div className="flex-1">
-                <p className="text-md bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-left font-bold text-transparent">
+                <p className="font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500 text-md">
                   Category {category}
                 </p>
-                <div className="justify-left mt-2 flex">
+                <div className="flex mt-2 justify-left">
                   <MarkdownRenderer text={text} />
                 </div>
               </div>
@@ -105,7 +105,7 @@ function GradientHero({ data }: GradientHero): ReactElement {
     <div>
       <div className="relative mx-auto max-w-5xl">
         <div className="relative mx-auto rounded">
-          <div className="absolute inset-0 z-0 h-[85vh] max-w-7xl">
+          <div className="absolute inset-0 z-0 max-w-7xl h-[85vh]">
             <div className="cssgradient h-[85vh] lg:h-[75vh] xl:h-[65vh] 2xl:h-[85vh]"></div>
           </div>
           <div className="relative m-8">
@@ -117,7 +117,7 @@ function GradientHero({ data }: GradientHero): ReactElement {
                 <MarkdownRenderer text={data.content} />
               </div>
 
-              <div className="mx-auto mt-12 grid max-w-lg grid-cols-1 gap-3 lg:max-w-none lg:grid-cols-1">
+              <div className="grid grid-cols-1 gap-3 mx-auto mt-12 max-w-lg lg:grid-cols-1 lg:max-w-none">
                 {data.seminarCard.map((node) => <SingleCard key={node.id} {...node} />)}
               </div>
             </div>

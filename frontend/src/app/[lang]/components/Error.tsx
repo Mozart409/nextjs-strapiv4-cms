@@ -26,8 +26,8 @@ export default function Error() {
           logoText={"Frontend Error"}
         />
 
-        <main className="min-h-screen flex flex-col dark:text-gray-100 dark:bg-black">
-          <div className="w-full sm:max-w-lg mx-auto lg:max-w-5xl">
+        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
+          <div className="mx-auto w-full sm:max-w-lg lg:max-w-5xl">
             <div className="p-4 bg-red-50 rounded-md">
               <div className="flex">
                 <div className="flex-shrink-0">

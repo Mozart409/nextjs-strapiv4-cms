@@ -17,12 +17,12 @@ interface ListProps {
 export default function List({ data }: ListProps) {
   return (
     <>
-      <div className="mx-auto mt-5 container lg:max-w-md lg:text-left xl:max-w-lg">
+      <div className="container mx-auto mt-5 lg:max-w-md lg:text-left xl:max-w-lg">
         {data.listElement.map((item) => (
           <div key={item.id}>
             <ul className="space-y-4">
-              <li className="list-check list-inside align-baseline">
-                <span className="text-left text-2xl font-bold text-black">
+              <li className="list-inside align-baseline list-check">
+                <span className="text-2xl font-bold text-left text-black">
                   {item.title}
                 </span>
                 <MarkdownRenderer text={item.content} />
@@ -32,7 +32,7 @@ export default function List({ data }: ListProps) {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 sm:px-8 break-words">
+      <div className="container px-4 mx-auto break-words sm:px-8">
         {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
         {/* {console.log(data)} */}
       </div>
