@@ -5,10 +5,11 @@ import Heading from "../components/Heading";
 import Hero from "../components/Hero";
 import List from "../components/List";
 import Pricing from "../components/Pricing";
+import RichText from "../components/RichText";
 import Testimonials from "../components/Testimonials";
 
 export function sectionRenderer(section: any, index: number) {
-  // console.debug("sectionRenderer", section.__component);
+  console.debug(section.__component);
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;
@@ -26,6 +27,8 @@ export function sectionRenderer(section: any, index: number) {
       return <List key={index} data={section} />;
     case "sections.gradient-hero":
       return <GradientHero key={index} data={section} />;
+    case "sections.rich-text":
+      return <RichText key={index} data={section} />;
     default:
       return null;
   }

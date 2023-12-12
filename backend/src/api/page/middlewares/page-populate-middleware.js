@@ -47,6 +47,9 @@ const populate = {
           },
         },
       },
+      richText: {
+        populate: true,
+      },
     },
   },
   seo: {
