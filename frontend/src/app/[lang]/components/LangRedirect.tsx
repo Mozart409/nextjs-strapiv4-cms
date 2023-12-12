@@ -14,7 +14,6 @@ export default function LangRedirect() {
             className="mb-8 text-5xl font-bold leading-none sm:text-4xl"
             color="dark:text-violet-400"
           />
-
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:items-center sm:space-y-0 sm:space-x-4 lg:justify-start">
             <Link href="/en" className={renderButtonStyle("primary")}>
               Back To English

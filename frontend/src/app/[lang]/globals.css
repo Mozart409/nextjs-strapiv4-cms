@@ -159,7 +159,6 @@ body {
 
 .cssgradient {
   background: linear-gradient(90deg, #00ffbd, #00a3ff);
-  /* background: linear-gradient(90deg, #34d399, #3b82f6); */
   background-size: 400% 400%;
   -webkit-animation: GredientAnimation 20s ease infinite;
   -moz-animation: GredientAnimation 20s ease infinite;
