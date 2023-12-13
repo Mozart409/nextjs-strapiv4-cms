@@ -1,0 +1,10 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+healthcheckPath = "/"
+numReplicas = 1
+restartPolicyMaxRetries = 10
+restartPolicyType = "ON_FAILURE"
+sleepApplication = true
+startCommand = "yarn start"
