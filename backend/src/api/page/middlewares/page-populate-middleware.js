@@ -69,7 +69,6 @@ module.exports = (config, { strapi }) => {
 
     //  console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
-    console.debug("populate", populate.contentSections);
     await next();
   };
 };
