@@ -14,9 +14,11 @@ module.exports = ({ env }) => ({
       connections: {
         default: {
           connection: {
-            host: "127.0.0.1",
-            port: 6379,
+            host: env("REDIS_HOST", "127.0.0.1"),
+            port: env("REDIS_PORT", 6379),
             db: 0,
+            username: "default",
+            password: env("REDIS_PASSWORD", ""),
           },
           settings: {
             debug: true,
