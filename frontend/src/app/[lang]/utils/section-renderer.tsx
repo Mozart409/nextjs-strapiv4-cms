@@ -9,7 +9,7 @@ import RichText from "../components/RichText";
 import Testimonials from "../components/Testimonials";
 
 export function sectionRenderer(section: any, index: number) {
-  console.debug(section.__component);
+  // console.debug(section.__component);
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;

@@ -4,6 +4,7 @@ import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
 import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
+import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
 import { i18n } from "../../../i18n-config";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
@@ -88,34 +89,37 @@ export default async function RootLayout({
   );
 
   return (
-    <html lang={params.lang}>
-      <body>
-        {navbarLogoUrl
-          ? (
-            <Navbar
-              links={navbar.links}
-              logoUrl={navbarLogoUrl}
-              logoText={navbar.navbarLogo.logoText}
-            />
-          )
-          : null}
+    <HydrationOverlay>
+      /
+      <html lang={params.lang}>
+        <body>
+          {navbarLogoUrl
+            ? (
+              <Navbar
+                links={navbar.links}
+                logoUrl={navbarLogoUrl}
+                logoText={navbar.navbarLogo.logoText}
+              />
+            )
+            : null}
 
-        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
-          {children}
-        </main>
+          <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
+            {children}
+          </main>
 
-        {notificationBanner ? <Banner data={notificationBanner} /> : null}
+          {notificationBanner ? <Banner data={notificationBanner} /> : null}
 
-        <Footer
-          logoUrl={footerLogoUrl}
-          logoText={footer.footerLogo.logoText}
-          menuLinks={footer.menuLinks}
-          categoryLinks={footer.categories.data}
-          legalLinks={footer.legalLinks}
-          socialLinks={footer.socialLinks}
-        />
-      </body>
-    </html>
+          <Footer
+            logoUrl={footerLogoUrl}
+            logoText={footer.footerLogo.logoText}
+            menuLinks={footer.menuLinks}
+            categoryLinks={footer.categories.data}
+            legalLinks={footer.legalLinks}
+            socialLinks={footer.socialLinks}
+          />
+        </body>
+      </html>
+    </HydrationOverlay>
   );
 }
 
