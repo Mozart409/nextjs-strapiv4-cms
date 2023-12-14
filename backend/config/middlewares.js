@@ -1,5 +1,6 @@
 module.exports = [
   "strapi::errors",
+  // "strapi::security",
   {
     name: "strapi::security",
     config: {
@@ -12,14 +13,14 @@ module.exports = [
             "data:",
             "blob:",
             "market-assets.strapi.io",
-            env("AWS_BUCKET_URL"),
+            "s3-images-idealcoachingfargate.s3.eu-central-1.amazonaws.com",
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "market-assets.strapi.io",
-            env("AWS_BUCKET_URL"),
+            "s3-images-idealcoachingfargate.s3.eu-central-1.amazonaws.com",
           ],
           upgradeInsecureRequests: null,
         },
