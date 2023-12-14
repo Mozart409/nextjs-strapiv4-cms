@@ -1,5 +1,9 @@
 module.exports = ({ env }) => ({
+  // TODO: add s3 provider and sendmail provider
   seo: {
+    enabled: true,
+  },
+  "request-id": {
     enabled: true,
   },
   graphql: {

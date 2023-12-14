@@ -9,4 +9,5 @@ module.exports = [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+  "plugin::request-id.request-id", // ALWAYS KEEP THIS ONE AS THE LAST ONE
 ];

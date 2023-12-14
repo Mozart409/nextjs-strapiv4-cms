@@ -28,6 +28,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-redis": "^1.0.1",
+    "strapi-plugin-request-id": "^1.2.0",
     "strapi-plugin-rest-cache": "^4.2.8",
     "strapi-provider-rest-cache-redis": "^4.2.8",
     "styled-components": "^5.2.1"
