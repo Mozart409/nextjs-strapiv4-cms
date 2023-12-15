@@ -32,6 +32,8 @@ export function middleware(request: NextRequest) {
       "/check32.png",
       "/vercel.svg",
       "/next.svg",
+      "/_vercel/insights/*",
+      "/_vercel/speed-insights/*",
       // Your other files in `public`
     ].includes(pathname)
   ) {
