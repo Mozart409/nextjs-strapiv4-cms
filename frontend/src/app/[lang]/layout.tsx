@@ -5,6 +5,7 @@ import { fetchAPI } from "./utils/fetch-api";
 
 import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
 import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { i18n } from "../../../i18n-config";
 import Banner from "./components/Banner";
@@ -118,6 +119,7 @@ export default async function RootLayout({
             legalLinks={footer.legalLinks}
             socialLinks={footer.socialLinks}
           />
+          <Analytics />
         </body>
       </html>
     </HydrationOverlay>
