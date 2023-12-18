@@ -14,12 +14,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images.pexels.com'
+        hostname: 's3-images-idealcoachingfargate.s3.eu-central-1.amazonaws.com'
       }
     ]
   }
 }
 
-module.exports = withHydrationOverlay()(nextConfig)
-
-//   module.exports = nextConfig
+// module.exports = withHydrationOverlay()(nextConfig)
+module.exports = nextConfig
