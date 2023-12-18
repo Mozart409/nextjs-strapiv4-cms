@@ -105,6 +105,7 @@ export default async function RootLayout({
 
         <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
           {children}
+          <SpeedInsights />
         </main>
 
         {notificationBanner ? <Banner data={notificationBanner} /> : null}
@@ -118,7 +119,6 @@ export default async function RootLayout({
           socialLinks={footer.socialLinks}
         />
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
