@@ -4,7 +4,6 @@ import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
 import { FALLBACK_SEO } from "@/app/utils/constants";
-import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -75,9 +74,7 @@ export default async function RootLayout({
         <body>
           <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
             <div className="px-4 sm:px-6 lg:px-8">
-              <HydrationOverlay>
-                {children}
-              </HydrationOverlay>
+              {children}
             </div>
           </main>
         </body>
@@ -105,12 +102,11 @@ export default async function RootLayout({
             />
           )
           : null}
-        <HydrationOverlay>
-          <SpeedInsights />
-          <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
-            {children}
-          </main>
-        </HydrationOverlay>
+
+        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
+          {children}
+        </main>
+
         {notificationBanner ? <Banner data={notificationBanner} /> : null}
 
         <Footer
@@ -122,6 +118,7 @@ export default async function RootLayout({
           socialLinks={footer.socialLinks}
         />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

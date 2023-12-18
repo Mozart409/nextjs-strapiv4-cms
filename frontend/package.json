@@ -13,7 +13,6 @@
     "t": "tsc -w"
   },
   "dependencies": {
-    "@builder.io/react-hydration-overlay": "0.0.3",
     "@formatjs/intl-localematcher": "^0.4.2",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
