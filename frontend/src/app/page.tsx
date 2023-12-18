@@ -1,4 +1,4 @@
-import { getPageBySlug } from "@/app/[lang]/utils/get-page-by-slug";
+import { getPageBySlug } from "@/app/utils/get-page-by-slug";
 import LangRedirect from "./components/LangRedirect";
 import { sectionRenderer } from "./utils/section-renderer";
 

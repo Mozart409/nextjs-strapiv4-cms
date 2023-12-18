@@ -3,11 +3,12 @@ import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
-import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
+import { FALLBACK_SEO } from "@/app/utils/constants";
 import { HydrationOverlay } from "@builder.io/react-hydration-overlay";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { i18n } from "../../../i18n-config";
+
+import { i18n } from "../../i18n-config";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -74,7 +75,9 @@ export default async function RootLayout({
         <body>
           <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
             <div className="px-4 sm:px-6 lg:px-8">
-              {children}
+              <HydrationOverlay>
+                {children}
+              </HydrationOverlay>
             </div>
           </main>
         </body>
@@ -91,38 +94,36 @@ export default async function RootLayout({
   );
 
   return (
-    <HydrationOverlay>
-      <SpeedInsights />
-      <html lang={params.lang}>
-        <body>
-          {navbarLogoUrl
-            ? (
-              <Navbar
-                links={navbar.links}
-                logoUrl={navbarLogoUrl}
-                logoText={navbar.navbarLogo.logoText}
-              />
-            )
-            : null}
-
+    <html lang={params.lang}>
+      <body>
+        {navbarLogoUrl
+          ? (
+            <Navbar
+              links={navbar.links}
+              logoUrl={navbarLogoUrl}
+              logoText={navbar.navbarLogo.logoText}
+            />
+          )
+          : null}
+        <HydrationOverlay>
+          <SpeedInsights />
           <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
             {children}
           </main>
+        </HydrationOverlay>
+        {notificationBanner ? <Banner data={notificationBanner} /> : null}
 
-          {notificationBanner ? <Banner data={notificationBanner} /> : null}
-
-          <Footer
-            logoUrl={footerLogoUrl}
-            logoText={footer.footerLogo.logoText}
-            menuLinks={footer.menuLinks}
-            categoryLinks={footer.categories.data}
-            legalLinks={footer.legalLinks}
-            socialLinks={footer.socialLinks}
-          />
-          <Analytics />
-        </body>
-      </html>
-    </HydrationOverlay>
+        <Footer
+          logoUrl={footerLogoUrl}
+          logoText={footer.footerLogo.logoText}
+          menuLinks={footer.menuLinks}
+          categoryLinks={footer.categories.data}
+          legalLinks={footer.legalLinks}
+          socialLinks={footer.socialLinks}
+        />
+        <Analytics />
+      </body>
+    </html>
   );
 }
 

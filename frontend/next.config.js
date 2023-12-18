@@ -20,8 +20,6 @@ const nextConfig = {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
-  module.exports = withHydrationOverlay({})(nextConfig)
-} else {
-  module.exports = nextConfig
-}
+module.exports = withHydrationOverlay()(nextConfig)
+
+//   module.exports = nextConfig
