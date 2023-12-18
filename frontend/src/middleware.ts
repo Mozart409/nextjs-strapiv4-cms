@@ -9,6 +9,8 @@ import Negotiator from "negotiator";
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
   // Use negotiator and intl-localematcher to get best locale
