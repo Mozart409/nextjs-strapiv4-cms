@@ -84,7 +84,7 @@ export default function Footer({
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 divide-opacity-50 md:space-y-12">
         <div className="grid grid-cols-12">
           <div className="col-span-full pb-6 md:col-span-6 md:pb-0">
-            <Logo src={logoUrl}>
+            <Logo src={logoUrl} width={120} height={60}>
               {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
             </Logo>
           </div>
@@ -100,12 +100,16 @@ export default function Footer({
             )
             : null}
 
-          <div className="col-span-6 text-center md:col-span-3 md:text-left">
-            <p className="pb-1 text-lg font-medium">Menu</p>
-            <ul>
-              {menuLinks.map((link: FooterLink) => <FooterLink key={link.id} {...link} />)}
-            </ul>
-          </div>
+          {menuLinks.length > 0
+            ? (
+              <div className="col-span-6 text-center md:col-span-3 md:text-left">
+                <p className="pb-1 text-lg font-medium">Menu</p>
+                <ul>
+                  {menuLinks.map((link: FooterLink) => <FooterLink key={link.id} {...link} />)}
+                </ul>
+              </div>
+            )
+            : null}
         </div>
         <div className="grid justify-center pt-6 lg:justify-between">
           <div className="flex">
