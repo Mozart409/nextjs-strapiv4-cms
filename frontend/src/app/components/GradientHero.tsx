@@ -12,7 +12,6 @@ interface GradientHero {
     blackText: string;
     coloredText: string;
     content: string;
-    title_color: "black" | "orange" | "green" | "yellow" | "blue" | "red";
     seminarCard: SeminarCard[];
   };
 }
