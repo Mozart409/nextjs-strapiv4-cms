@@ -1,5 +1,6 @@
 import MarkdownRenderer from "../utils/MarkdownRenderer";
 import { ColorWrapper, HeadingWrapper } from "../utils/render-title-style";
+import Spacer from "./Spacer";
 
 interface ListElement {
   id: string;
@@ -28,6 +29,7 @@ export default function List({ data }: ListProps) {
                 <MarkdownRenderer text={item.content} />
               </li>
             </ul>
+            <Spacer size="lg" />
           </div>
         ))}
       </div>
