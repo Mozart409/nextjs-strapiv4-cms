@@ -89,12 +89,16 @@ export default function Footer({
             </Logo>
           </div>
 
-          <div className="col-span-6 text-center md:col-span-3 md:text-left">
-            <p className="pb-1 text-lg font-medium">Categories</p>
-            <ul>
-              {categoryLinks.map((link: CategoryLink) => <CategoryLink key={link.id} {...link} />)}
-            </ul>
-          </div>
+          {categoryLinks.length > 0
+            ? (
+              <div className="col-span-6 text-center md:col-span-3 md:text-left">
+                <p className="pb-1 text-lg font-medium">Categories</p>
+                <ul>
+                  {categoryLinks.map((link: CategoryLink) => <CategoryLink key={link.id} {...link} />)}
+                </ul>
+              </div>
+            )
+            : null}
 
           <div className="col-span-6 text-center md:col-span-3 md:text-left">
             <p className="pb-1 text-lg font-medium">Menu</p>
