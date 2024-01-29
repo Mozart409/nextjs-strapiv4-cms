@@ -50,6 +50,9 @@ const populate = {
       richText: {
         populate: true,
       },
+      image: {
+        fields: ["url", "alternativeText", "caption", "width", "height"],
+      },
     },
   },
   seo: {

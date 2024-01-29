@@ -1,5 +1,6 @@
+import CustomImage from "../components/CustomImage";
 import Email from "../components/Email";
-import Features from "../components/Features";
+import Features, { FeatureRowGroup } from "../components/Features";
 import GradientHero from "../components/GradientHero";
 import Heading from "../components/Heading";
 import Hero from "../components/Hero";
@@ -29,6 +30,12 @@ export function sectionRenderer(section: any, index: number) {
       return <GradientHero key={index} data={section} />;
     case "sections.rich-text":
       return <RichText key={index} data={section} />;
+    case "sections.feature-rows-group":
+      return <FeatureRowGroup key={index} data={section} />;
+    case "sections.image":
+      return <CustomImage key={index} data={section} />;
+    case "sections.bottom-actions":
+      return null;
     default:
       return null;
   }
