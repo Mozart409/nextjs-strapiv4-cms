@@ -13,13 +13,13 @@ async function getPostBySlug(slug: string) {
       category: { fields: ["name"] },
       blocks: {
         populate: {
-          "__component": "*",
-          "files": "*",
-          "file": "*",
-          "url": "*",
-          "body": "*",
-          "title": "*",
-          "author": "*",
+          __component: "*",
+          files: "*",
+          file: "*",
+          url: "*",
+          body: "*",
+          title: "*",
+          author: "*",
         },
       },
     },
@@ -41,7 +41,9 @@ async function getMetaData(slug: string) {
   return response.data;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: { params: { slug: string } }): Promise<Metadata> {
   const meta = await getMetaData(params.slug);
   const metadata = meta[0].attributes.seo;
 
@@ -51,7 +53,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function PostRoute({ params }: { params: { slug: string } }) {
+export default async function PostRoute({
+  params,
+}: { params: { slug: string } }) {
   const { slug } = params;
   const data = await getPostBySlug(slug);
   if (data.data.length === 0) return <h2>no post found</h2>;
@@ -78,6 +82,9 @@ export async function generateStaticParams() {
           slug: string;
         };
       };
-    }) => ({ slug: article.attributes.slug, category: article.attributes.slug }),
+    }) => ({
+      slug: article.attributes.slug,
+      category: article.attributes.slug,
+    }),
   );
 }

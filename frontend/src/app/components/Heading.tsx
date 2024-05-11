@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { ColorWrapper, HeadingWrapper } from "../utils/render-title-style";
 
 interface Props {

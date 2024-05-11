@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement } from "react";
-import { getStrapiMedia } from "../utils/api-helpers";
+import type { ReactElement } from "react";
 import MarkdownRenderer from "../utils/MarkdownRenderer";
+import { getStrapiMedia } from "../utils/api-helpers";
 
 interface GradientHero {
   data: {
@@ -71,17 +71,19 @@ const SingleCard = ({
         title={tilte}
       >
         <div className="relative flex-shrink-0">
-          {imageUrl
-            ? (
-              <Image
-                className="object-cover w-full h-96"
-                src={imageUrl}
-                width={1000}
-                height={700}
-                alt={image.data.attributes.alternativeText || image.data.attributes.caption || ""}
-              />
-            )
-            : null}
+          {imageUrl ? (
+            <Image
+              className="object-cover w-full h-96"
+              src={imageUrl}
+              width={1000}
+              height={700}
+              alt={
+                image.data.attributes.alternativeText ||
+                image.data.attributes.caption ||
+                ""
+              }
+            />
+          ) : null}
           <div className="absolute bottom-0 left-0 w-full">
             <div className="flex flex-col flex-1 justify-between py-2 px-6 mx-auto bg-white">
               <div className="flex-1">
@@ -118,7 +120,9 @@ function GradientHero({ data }: GradientHero): ReactElement {
               </div>
 
               <div className="grid grid-cols-1 gap-3 mx-auto mt-12 max-w-lg lg:grid-cols-1 lg:max-w-none">
-                {data.seminarCard.map((node) => <SingleCard key={node.id} {...node} />)}
+                {data.seminarCard.map((node) => (
+                  <SingleCard key={node.id} {...node} />
+                ))}
               </div>
             </div>
           </div>

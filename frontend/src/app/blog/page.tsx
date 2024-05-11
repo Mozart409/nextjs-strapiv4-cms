@@ -70,8 +70,8 @@ export default function Profile() {
     <div>
       <PageHeader heading="Our Blog" text="Checkout Something Cool" />
       <Blog data={data}>
-        {meta!.pagination.start + meta!.pagination.limit
-            < meta!.pagination.total && (
+        {meta!.pagination.start + meta!.pagination.limit <
+          meta!.pagination.total && (
           <div className="flex justify-center">
             <button
               type="button"

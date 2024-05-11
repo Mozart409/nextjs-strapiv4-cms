@@ -16,12 +16,12 @@ async function fetchSideMenuData(filter: string) {
       "/articles",
       filter
         ? {
-          filters: {
-            category: {
-              name: filter,
+            filters: {
+              category: {
+                name: filter,
+              },
             },
-          },
-        }
+          }
         : {},
       options,
     );
@@ -108,6 +108,9 @@ export async function generateStaticParams() {
           slug: string;
         };
       };
-    }) => ({ slug: article.attributes.slug, category: article.attributes.slug }),
+    }) => ({
+      slug: article.attributes.slug,
+      category: article.attributes.slug,
+    }),
   );
 }

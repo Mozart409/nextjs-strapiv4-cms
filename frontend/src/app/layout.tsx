@@ -15,7 +15,8 @@ import Navbar from "./components/Navbar";
 async function getGlobal(lang: string): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
-  if (!token) throw new Error("The Strapi API Token environment variable is not set.");
+  if (!token)
+    throw new Error("The Strapi API Token environment variable is not set.");
 
   const path = `/global`;
   const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -38,7 +39,9 @@ async function getGlobal(lang: string): Promise<any> {
   return await fetchAPI(path, urlParamsObject, options);
 }
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: { params: { lang: string } }): Promise<Metadata> {
   const meta = await getGlobal(params.lang);
 
   if (!meta.data) return FALLBACK_SEO;
@@ -73,9 +76,7 @@ export default async function RootLayout({
       <html lang={params.lang}>
         <body>
           <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
-            <div className="px-4 sm:px-6 lg:px-8">
-              {children}
-            </div>
+            <div className="px-4 sm:px-6 lg:px-8">{children}</div>
           </main>
         </body>
       </html>
@@ -93,15 +94,13 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
-        {navbarLogoUrl
-          ? (
-            <Navbar
-              links={navbar.links}
-              logoUrl={navbarLogoUrl}
-              logoText={navbar.navbarLogo.logoText}
-            />
-          )
-          : null}
+        {navbarLogoUrl ? (
+          <Navbar
+            links={navbar.links}
+            logoUrl={navbarLogoUrl}
+            logoText={navbar.navbarLogo.logoText}
+          />
+        ) : null}
 
         <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
           {children}

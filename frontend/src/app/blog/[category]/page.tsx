@@ -31,7 +31,9 @@ async function fetchPostsByCategory(filter: string) {
   }
 }
 
-export default async function CategoryRoute({ params }: { params: { category: string } }) {
+export default async function CategoryRoute({
+  params,
+}: { params: { category: string } }) {
   const filter = params.category;
   const { data } = await fetchPostsByCategory(filter);
 

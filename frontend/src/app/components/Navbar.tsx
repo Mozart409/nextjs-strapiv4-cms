@@ -76,24 +76,24 @@ export default function Navbar({
 
         <div className="hidden flex-shrink-0 items-center lg:flex">
           <ul className="hidden items-stretch space-x-3 lg:flex">
-            {links.map((item: NavLink) => <NavLink key={item.id} {...item} />)}
+            {links.map((item: NavLink) => (
+              <NavLink key={item.id} {...item} />
+            ))}
           </ul>
         </div>
 
-        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="overflow-y-auto fixed inset-y-0 z-50 py-6 px-6 w-full sm:max-w-sm sm:ring-1 dark:bg-black rtl:left-0 ltr:right-0 sm:ring-gray-100/10">
             <div className="flex justify-between items-center">
               <a href="#" className="p-1.5 -m-1.5">
                 <span className="sr-only">Strapi</span>
-                {logoUrl
-                  && (
-                    <img
-                      className="w-auto h-8"
-                      src={logoUrl}
-                      alt=""
-                    />
-                  )}
+                {logoUrl && <img className="w-auto h-8" src={logoUrl} alt="" />}
               </a>
               <button
                 type="button"

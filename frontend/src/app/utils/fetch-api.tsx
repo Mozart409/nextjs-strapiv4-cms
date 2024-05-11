@@ -18,11 +18,9 @@ export async function fetchAPI(
 
     // Build request URL
     const queryString = qs.stringify(urlParamsObject);
-    const requestUrl = `${
-      getStrapiURL(
-        `/api${path}${queryString ? `?${queryString}` : ""}`,
-      )
-    }`;
+    const requestUrl = `${getStrapiURL(
+      `/api${path}${queryString ? `?${queryString}` : ""}`,
+    )}`;
 
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
@@ -30,6 +28,8 @@ export async function fetchAPI(
     return data;
   } catch (error) {
     console.error(error);
-    throw new Error(`Please check if your server is running and you set all the required tokens.`);
+    throw new Error(
+      `Please check if your server is running and you set all the required tokens.`,
+    );
   }
 }

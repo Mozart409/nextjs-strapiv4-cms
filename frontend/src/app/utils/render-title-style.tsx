@@ -1,8 +1,9 @@
-import { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 
-export const ColorWrapper: FC<
-  { children: ReactNode; title_color: "black" | "orange" | "green" | "yellow" | "blue" | "red" }
-> = ({ children, title_color }) => {
+export const ColorWrapper: FC<{
+  children: ReactNode;
+  title_color: "black" | "orange" | "green" | "yellow" | "blue" | "red";
+}> = ({ children, title_color }) => {
   switch (title_color) {
     case "black":
       return (
@@ -49,9 +50,10 @@ export const ColorWrapper: FC<
   }
 };
 
-export const HeadingWrapper: FC<{ children: ReactNode; type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" }> = (
-  { children, type },
-) => {
+export const HeadingWrapper: FC<{
+  children: ReactNode;
+  type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}> = ({ children, type }) => {
   switch (type) {
     case "h1":
       return <h1>{children}</h1>;
