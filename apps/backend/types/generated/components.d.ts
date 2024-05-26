@@ -280,7 +280,11 @@ export interface LinksSocialLink extends Schema.Component {
     url: Attribute.String & Attribute.Required;
     newTab: Attribute.Boolean & Attribute.DefaultTo<false>;
     text: Attribute.String & Attribute.Required;
-    social: Attribute.Enumeration<['YOUTUBE', 'TWITTER', 'DISCORD', 'WEBSITE']>;
+    social: Attribute.Enumeration<
+      ['YOUTUBE', 'TWITTER', 'DISCORD', 'XING', 'LINKEDIN', 'WEBSITE']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'WEBSITE'>;
   };
 }
 
@@ -302,7 +306,7 @@ export interface SectionsBottomActions extends Schema.Component {
   collectionName: 'components_slices_bottom_actions';
   info: {
     name: 'BottomActions';
-    displayName: 'Bottom actions';
+    displayName: 'Buttom actions';
     icon: 'angle-double-right';
     description: '';
   };
