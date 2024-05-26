@@ -1,3 +1,4 @@
+import ButtonActions from "../components/ButtonActions";
 import Email from "../components/Email";
 import Features from "../components/Features";
 import GradientHero from "../components/GradientHero";
@@ -29,6 +30,8 @@ export function sectionRenderer(section: any, index: number) {
       return <GradientHero key={index} data={section} />;
     case "sections.rich-text":
       return <RichText key={index} data={section} />;
+    case "sections.bottom-actions":
+      return <ButtonActions key={index} data={section} />;
     default:
       return null;
   }

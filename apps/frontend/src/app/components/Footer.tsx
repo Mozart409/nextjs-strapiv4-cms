@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 import { CgWebsite } from "react-icons/cg";
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaLinkedin, FaXingSquare } from "react-icons/fa";
 import Logo from "./Logo";
 
 interface FooterLink {
@@ -28,9 +28,7 @@ function FooterLink({ url, text }: FooterLink) {
     <li className="flex">
       <Link
         href={url}
-        className={`hover:dark:text-violet-400 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
+        className={`hover:dark:text-violet-400 ${path === url && "dark:text-violet-400 dark:border-violet-400"}}`}
       >
         {text}
       </Link>
@@ -61,6 +59,10 @@ function RenderSocialIcon({ social }: { social: string | undefined }) {
       return <AiFillYoutube />;
     case "DISCORD":
       return <FaDiscord />;
+    case "LINKEDIN":
+      return <FaLinkedin />;
+    case "XING":
+      return <FaXingSquare />;
     default:
       return null;
   }
@@ -90,22 +92,21 @@ export default function Footer({
               {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
             </Logo>
           </div>
-
-          <div className="col-span-6 text-center md:col-span-3 md:text-left">
-            <p className="pb-1 text-lg font-medium">Categories</p>
-            <ul>
-              {categoryLinks.map((link: CategoryLink) => (
-                <CategoryLink key={link.id} {...link} />
-              ))}
-            </ul>
-          </div>
+          {categoryLinks.length === 0
+            ? null
+            : (
+              <div className="col-span-6 text-center md:col-span-3 md:text-left">
+                <p className="pb-1 text-lg font-medium">Categories</p>
+                <ul>
+                  {categoryLinks.map((link: CategoryLink) => <CategoryLink key={link.id} {...link} />)}
+                </ul>
+              </div>
+            )}
 
           <div className="col-span-6 text-center md:col-span-3 md:text-left">
             <p className="pb-1 text-lg font-medium">Menu</p>
             <ul>
-              {menuLinks.map((link: FooterLink) => (
-                <FooterLink key={link.id} {...link} />
-              ))}
+              {menuLinks.map((link: FooterLink) => <FooterLink key={link.id} {...link} />)}
             </ul>
           </div>
         </div>

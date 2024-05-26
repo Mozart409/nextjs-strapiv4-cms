@@ -15,8 +15,9 @@ import Navbar from "./components/Navbar";
 async function getGlobal(lang: string): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
-  if (!token)
+  if (!token) {
     throw new Error("The Strapi API Token environment variable is not set.");
+  }
 
   const path = `/global`;
   const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -75,7 +76,7 @@ export default async function RootLayout({
     return (
       <html lang={params.lang}>
         <body>
-          <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
+          <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black px-4">
             <div className="px-4 sm:px-6 lg:px-8">{children}</div>
           </main>
         </body>
@@ -94,15 +95,17 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
-        {navbarLogoUrl ? (
-          <Navbar
-            links={navbar.links}
-            logoUrl={navbarLogoUrl}
-            logoText={navbar.navbarLogo.logoText}
-          />
-        ) : null}
+        {navbarLogoUrl
+          ? (
+            <Navbar
+              links={navbar.links}
+              logoUrl={navbarLogoUrl}
+              logoText={navbar.navbarLogo.logoText}
+            />
+          )
+          : null}
 
-        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black">
+        <main className="flex flex-col min-h-screen dark:text-gray-100 dark:bg-black px-4">
           {children}
           <SpeedInsights />
         </main>
