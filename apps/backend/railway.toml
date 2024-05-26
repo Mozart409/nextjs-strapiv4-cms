@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+numReplicas = 1
+restartPolicyMaxRetries = 10
+restartPolicyType = "ON_FAILURE"
+sleepApplication = true
+startCommand = "pnpm run start"

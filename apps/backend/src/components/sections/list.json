@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_lists",
+  "info": {
+    "displayName": "List",
+    "icon": "layer",
+    "description": "A list of items with a title and content."
+  },
+  "options": {},
+  "attributes": {
+    "listElement": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.list-element",
+      "required": true
+    }
+  }
+}

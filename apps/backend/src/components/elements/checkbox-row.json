@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_checkbox_rows",
+  "info": {
+    "displayName": "CheckboxRow"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
