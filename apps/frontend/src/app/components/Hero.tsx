@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
@@ -73,7 +73,10 @@ export default function Hero({ data }: HeroProps) {
             className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
             width={600}
             height={600}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
 
 interface MediaProps {
@@ -24,7 +24,10 @@ export default function Media({ data }: { data: MediaProps }) {
         className="object-cover overflow-hidden w-full h-full rounded-lg"
         width={400}
         height={400}
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
   );
 }

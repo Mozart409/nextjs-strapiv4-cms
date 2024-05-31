@@ -1,6 +1,6 @@
 import { formatDate, getStrapiMedia } from "@/app/utils/api-helpers";
 import { postRenderer } from "@/app/utils/post-renderer";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface Article {
   id: number;
@@ -52,7 +52,10 @@ export default function Post({ data }: { data: Article }) {
           width={400}
           height={400}
           className="object-cover w-full h-96 rounded-lg"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       )}
       <div className="space-y-6">
         <h1 className="text-5xl font-bold leading-tight">{title}</h1>
@@ -65,7 +68,10 @@ export default function Post({ data }: { data: Article }) {
                 width={400}
                 height={400}
                 className="w-14 h-14 rounded-full border dark:bg-gray-500 dark:border-gray-700"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             )}
             <p className="dark:text-violet-400 text-md">
               {author && author.name} • {formatDate(publishedAt)}

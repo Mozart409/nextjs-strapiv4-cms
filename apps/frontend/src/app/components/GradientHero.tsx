@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactElement } from "react";
 import MarkdownRenderer from "../utils/MarkdownRenderer";
@@ -82,7 +82,10 @@ const SingleCard = ({
                 image.data.attributes.caption ||
                 ""
               }
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           ) : null}
           <div className="absolute bottom-0 left-0 w-full">
             <div className="flex flex-col flex-1 justify-between py-2 px-6 mx-auto bg-white">

@@ -1,5 +1,5 @@
 import { getStrapiMedia } from "@/app/utils/api-helpers";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface CustomImageProps {
   media?: IMedia;
@@ -21,11 +21,13 @@ const NextImage = ({ media, ...props }: CustomImageProps) => {
         src={fullUrl}
         alt={media?.alternativeText || ""}
         title={media?.caption || ""}
-        layout="intrinsic"
         className={props.className}
         width={props.width || media?.width}
         height={props.height || media?.height}
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
   );
 };

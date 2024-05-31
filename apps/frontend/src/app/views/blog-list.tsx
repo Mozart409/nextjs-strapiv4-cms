@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { formatDate, getStrapiMedia } from "../utils/api-helpers";
 
@@ -78,7 +78,10 @@ export default function PostList({
                   height="240"
                   className="object-cover w-full h-44"
                   src={imageUrl}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               )}
               <div className="relative p-6 space-y-2">
                 {avatarUrl && (
@@ -88,7 +91,10 @@ export default function PostList({
                     height="80"
                     src={avatarUrl}
                     className="object-cover absolute right-4 -top-8 w-16 h-16 rounded-full"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 )}
 
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">

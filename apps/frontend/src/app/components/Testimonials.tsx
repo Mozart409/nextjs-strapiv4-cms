@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
 
 interface Testimonial {
@@ -37,7 +37,10 @@ function Testimonial({ text, authorName, picture }: Testimonial) {
             className="inline-block w-32 h-32 rounded-full"
             width={200}
             height={200}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       </div>
       <div className="relative text-center">

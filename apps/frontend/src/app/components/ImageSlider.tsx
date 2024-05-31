@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Fade } from "react-slideshow-image";
 import { getStrapiMedia } from "../utils/api-helpers";
 
@@ -33,7 +33,10 @@ export default function Slideshow({ data }: { data: SlidShowProps }) {
                   width={600}
                   alt="alt text"
                   src={imageUrl}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               )}
             </div>
           );
