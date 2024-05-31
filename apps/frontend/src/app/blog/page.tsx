@@ -39,7 +39,7 @@ export default function Profile() {
         }
       }
       const options = { headers: { Authorization: `Bearer ${token}` } }
-      const responseData = await fetchAPI(path, urlParamsObject, options)
+      const responseData: any = await fetchAPI(path, urlParamsObject, options)
 
       if (start === 0) {
         setData(responseData.data)
