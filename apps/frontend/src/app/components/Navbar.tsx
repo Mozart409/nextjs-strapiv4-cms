@@ -76,9 +76,7 @@ export default function Navbar({
 
         <div className="hidden flex-shrink-0 items-center lg:flex">
           <ul className="hidden items-stretch space-x-3 lg:flex">
-            {links.map((item: NavLink) => (
-              <NavLink key={item.id} {...item} />
-            ))}
+            {links.map((item: NavLink) => <NavLink key={item.id} {...item} />)}
           </ul>
         </div>
 
@@ -89,15 +87,15 @@ export default function Navbar({
           onClose={setMobileMenuOpen}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="overflow-y-auto fixed inset-y-0 z-50 py-6 px-6 w-full sm:max-w-sm sm:ring-1 dark:bg-black rtl:left-0 ltr:right-0 sm:ring-gray-100/10">
+          <Dialog.Panel className="overflow-y-auto bg-primary-800 fixed inset-y-0 z-50 py-6 px-6 w-full sm:max-w-sm sm:ring-1 dark:bg-black rtl:left-0 ltr:right-0 sm:ring-gray-100/10">
             <div className="flex justify-between items-center">
               <a href="#" className="p-1.5 -m-1.5">
-                <span className="sr-only">Strapi</span>
+                <span className="sr-only">Logo</span>
                 {logoUrl && <img className="w-auto h-8" src={logoUrl} alt="" />}
               </a>
               <button
                 type="button"
-                className="p-2.5 -m-2.5 text-gray-100 rounded-md"
+                className="p-2.5 -m-2.5 text-gray-800 rounded-md bg-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
@@ -120,10 +118,11 @@ export default function Navbar({
           </Dialog.Panel>
         </Dialog>
         <button
+          type="button"
           className="p-4 lg:hidden"
           onClick={() => setMobileMenuOpen(true)}
         >
-          <Bars3Icon className="w-7 h-7 text-gray-100" aria-hidden="true" />
+          <Bars3Icon className="w-7 h-7 text-gray-800 " aria-hidden="true" />
         </button>
       </div>
     </div>

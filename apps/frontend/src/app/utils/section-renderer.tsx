@@ -1,5 +1,6 @@
 import ButtonActions from "../components/ButtonActions";
 import Email from "../components/Email";
+import FeatureRowsGroup from "../components/FeatureRowGroup";
 import Features from "../components/Features";
 import GradientHero from "../components/GradientHero";
 import Heading from "../components/Heading";
@@ -10,7 +11,7 @@ import RichText from "../components/RichText";
 import Testimonials from "../components/Testimonials";
 
 export function sectionRenderer(section: any, index: number) {
-  // console.debug(section.__component);
+  console.debug(section.__component);
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;
@@ -32,6 +33,8 @@ export function sectionRenderer(section: any, index: number) {
       return <RichText key={index} data={section} />;
     case "sections.bottom-actions":
       return <ButtonActions key={index} data={section} />;
+    case "sections.feature-rows-group":
+      return <FeatureRowsGroup key={index} data={section} />;
     default:
       return null;
   }

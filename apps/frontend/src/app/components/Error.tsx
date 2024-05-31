@@ -8,7 +8,7 @@ interface NavLink {
   text: string;
 }
 
-export default function Error() {
+export default function ErrorPage() {
   const fallbackLinks: NavLink[] = [
     {
       id: 1,
@@ -18,7 +18,7 @@ export default function Error() {
     },
   ];
   return (
-    <html>
+    <html lang="en">
       <body>
         <Navbar
           links={fallbackLinks}
@@ -41,7 +41,7 @@ export default function Error() {
                     Something went wrong!
                   </h2>
                   <div className="mt-2 text-sm text-red-700">
-                    <ul role="list" className="pl-5 space-y-1 list-disc">
+                    <ul className="pl-5 space-y-1 list-disc">
                       <li>Please try again</li>
                     </ul>
                   </div>

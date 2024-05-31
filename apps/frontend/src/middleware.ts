@@ -18,7 +18,7 @@ function getLocale(request: NextRequest): string | undefined {
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales;
 
-  console.debug("languages", languages);
+  // console.debug("languages", languages);
   return matchLocale(languages, locales, i18n.defaultLocale);
 }
 

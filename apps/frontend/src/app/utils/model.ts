@@ -5,8 +5,8 @@ type StrapiResponse<T> = {
 
 export interface Attribute {
   url: string;
-  alternativeText?: any;
-  caption?: any;
+  alternativeText?: string;
+  caption?: string;
   width: number;
   height: number;
 }

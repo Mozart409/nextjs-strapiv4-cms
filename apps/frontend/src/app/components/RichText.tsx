@@ -1,5 +1,3 @@
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import MarkdownRenderer from "../utils/MarkdownRenderer";
 
 interface RichTextProps {
@@ -10,7 +8,6 @@ interface RichTextProps {
 }
 
 export default function RichText({ data }: RichTextProps) {
-  // TODO: STYLE THE MARKDOWN
   return (
     <section
       key={data.id}

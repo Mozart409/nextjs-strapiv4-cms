@@ -12,14 +12,14 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
-async function getGlobal(lang: string): Promise<any> {
+async function getGlobal(lang: string) {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
   if (!token) {
     throw new Error("The Strapi API Token environment variable is not set.");
   }
 
-  const path = `/global`;
+  const path = "/global";
   const options = { headers: { Authorization: `Bearer ${token}` } };
 
   const urlParamsObject = {
