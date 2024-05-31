@@ -18,10 +18,15 @@ module.exports = ({ env }) => ({
     },
   },
   graphql: {
-    enabled: true,
     config: {
-      // set this to true if you want to enable the playground in production
+      endpoint: "/graphql",
+      shadowCRUD: true,
       playgroundAlways: false,
+      depthLimit: 12,
+      amountLimit: 100,
+      apolloServer: {
+        tracing: true,
+      },
     },
   },
   redis: {
