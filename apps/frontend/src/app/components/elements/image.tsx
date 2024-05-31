@@ -1,5 +1,5 @@
 import { getStrapiMedia } from "@/app/utils/api-helpers";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface CustomImageProps {
   media?: IMedia;

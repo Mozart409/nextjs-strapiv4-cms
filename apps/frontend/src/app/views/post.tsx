@@ -1,6 +1,6 @@
 import { formatDate, getStrapiMedia } from "@/app/utils/api-helpers";
 import { postRenderer } from "@/app/utils/post-renderer";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Article {
   id: number;
