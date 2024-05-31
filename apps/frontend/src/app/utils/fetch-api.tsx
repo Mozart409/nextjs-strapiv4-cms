@@ -51,7 +51,7 @@ export async function fetchAPI(
         `/api${path}${queryString ? `?${queryString}` : ""}`,
       )
     }`;
-    console.debug("requestUrl", requestUrl);
+    // console.debug("requestUrl", requestUrl);
     // Trigger API call using wretch
     const data = await wretch(requestUrl)
       .addon(QueryStringAddon)
