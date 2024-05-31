@@ -50,6 +50,12 @@ const populate = {
       richText: {
         populate: true,
       },
+      features: {
+        populate: {
+          media: true,
+          link: true,
+        },
+      },
     },
   },
   seo: {

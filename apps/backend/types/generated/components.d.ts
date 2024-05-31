@@ -22,7 +22,7 @@ export interface ElementsFeatureColumn extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text;
-    icon: Attribute.Media & Attribute.Required;
+    icon: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -37,7 +37,7 @@ export interface ElementsFeatureRow extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text;
-    media: Attribute.Media & Attribute.Required;
+    media: Attribute.Media<'images' | 'videos'> & Attribute.Required;
     link: Attribute.Component<'links.link'>;
   };
 }
@@ -46,13 +46,14 @@ export interface ElementsFeature extends Schema.Component {
   collectionName: 'components_elements_features';
   info: {
     displayName: 'Feature';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    media: Attribute.Media;
+    media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     showLink: Attribute.Boolean & Attribute.DefaultTo<false>;
-    newTab: Attribute.Boolean & Attribute.DefaultTo<false>;
+    newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
     url: Attribute.String;
     text: Attribute.String;
   };
@@ -92,7 +93,7 @@ export interface ElementsLogos extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    logo: Attribute.Media;
+    logo: Attribute.Media<'images'>;
   };
 }
 
@@ -158,7 +159,7 @@ export interface ElementsSeminarCard extends Schema.Component {
     category: Attribute.String & Attribute.Required;
     url: Attribute.String & Attribute.Required;
     newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -171,7 +172,7 @@ export interface ElementsTestimonial extends Schema.Component {
     description: '';
   };
   attributes: {
-    picture: Attribute.Media & Attribute.Required;
+    picture: Attribute.Media<'images'> & Attribute.Required;
     text: Attribute.Text & Attribute.Required;
     authorName: Attribute.String & Attribute.Required;
   };
@@ -203,7 +204,8 @@ export interface LayoutLogo extends Schema.Component {
     description: '';
   };
   attributes: {
-    logoImg: Attribute.Media & Attribute.Required;
+    logoImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
     logoText: Attribute.String;
   };
 }
@@ -265,7 +267,7 @@ export interface LinksLink extends Schema.Component {
   };
   attributes: {
     url: Attribute.String & Attribute.Required;
-    newTab: Attribute.Boolean & Attribute.DefaultTo<false>;
+    newTab: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
     text: Attribute.String & Attribute.Required;
   };
 }
@@ -416,7 +418,7 @@ export interface SectionsHero extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.String & Attribute.Required;
-    picture: Attribute.Media & Attribute.Required;
+    picture: Attribute.Media<'images'> & Attribute.Required;
     buttons: Attribute.Component<'links.button-link', true>;
   };
 }
@@ -427,7 +429,7 @@ export interface SectionsImage extends Schema.Component {
     displayName: 'Image';
   };
   attributes: {
-    picture: Attribute.Media & Attribute.Required;
+    picture: Attribute.Media<'images', true> & Attribute.Required;
     link: Attribute.Component<'links.link'>;
     small_image: Attribute.Boolean & Attribute.DefaultTo<false>;
     image_border: Attribute.Boolean & Attribute.DefaultTo<false>;
@@ -444,8 +446,8 @@ export interface SectionsLargeVideo extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    video: Attribute.Media & Attribute.Required;
-    poster: Attribute.Media;
+    video: Attribute.Media<'videos'> & Attribute.Required;
+    poster: Attribute.Media<'images'>;
   };
 }
 
@@ -538,7 +540,7 @@ export interface SharedMedia extends Schema.Component {
     description: '';
   };
   attributes: {
-    file: Attribute.Media;
+    file: Attribute.Media<'images'>;
   };
 }
 
@@ -579,7 +581,7 @@ export interface SharedSeo extends Schema.Component {
   attributes: {
     metaTitle: Attribute.String & Attribute.Required;
     metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media;
+    shareImage: Attribute.Media<'images'>;
   };
 }
 
@@ -591,7 +593,7 @@ export interface SharedSlider extends Schema.Component {
     description: '';
   };
   attributes: {
-    files: Attribute.Media;
+    files: Attribute.Media<'images', true>;
   };
 }
 
