@@ -25,7 +25,7 @@
     "@vercel/speed-insights": "^1.0.10",
     "classnames": "^2.5.1",
     "negotiator": "^0.6.3",
-    "next": "^14.2.3",
+    "next": "^14.2.4",
     "qs": "^6.12.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -51,8 +51,7 @@
     "tailwindcss": "^3.4.3"
   },
   "engines": {
-    "node": ">=18.17.0 <=20.x.x",
-    "npm": ">=6.0.0"
+    "node": ">=18.17.0 <=20.x.x"
   },
   "packageManager": "pnpm@9.4.0"
 }

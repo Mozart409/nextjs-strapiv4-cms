@@ -73,6 +73,7 @@ export interface Link {
 const FeatureRowsGroup = ({ data }: IFeatureRowsGroup) => {
   return (
     <div className="container flex flex-col gap-12 py-12">
+      {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
       {data.features.map((feature, index) => (
         <div
           className={classNames(
@@ -118,6 +119,7 @@ const FeatureRowsGroup = ({ data }: IFeatureRowsGroup) => {
           </div>
         </div>
       ))}
+
     </div>
   )
 }
