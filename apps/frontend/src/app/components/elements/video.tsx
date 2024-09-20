@@ -1,11 +1,11 @@
-import { getStrapiMedia } from '@/app/utils/api-helpers'
+import { getStrapiMedia } from "@/app/utils/api-helpers";
 
 interface VideoProps {
-  media: IMedia
-  poster?: IMedia
-  className?: string
-  controls?: boolean
-  autoPlay?: boolean
+  media: IMedia;
+  poster?: IMedia;
+  className?: string;
+  controls?: boolean;
+  autoPlay?: boolean;
 }
 
 const Video = ({
@@ -13,16 +13,16 @@ const Video = ({
   poster,
   className,
   controls = true,
-  autoPlay = false
+  autoPlay = false,
 }: VideoProps) => {
-  const fullVideoUrl = getStrapiMedia(media?.data.attributes.url)
-  const fullPosterUrl = getStrapiMedia(poster?.data.attributes.url || '')
+  const fullVideoUrl = getStrapiMedia(media?.data.attributes.url);
+  const fullPosterUrl = getStrapiMedia(poster?.data.attributes.url || "");
 
   if (!fullVideoUrl) {
-    return <div>no media</div>
+    return <div>no media</div>;
   }
 
-  if (fullPosterUrl === '') {
+  if (fullPosterUrl === "") {
     return (
       // biome-ignore lint/a11y/useMediaCaption: <explanation>
       <video
@@ -33,10 +33,10 @@ const Video = ({
       >
         <source src={fullVideoUrl} type={media?.data.attributes.mime} />
       </video>
-    )
+    );
   }
 
-  if (fullPosterUrl !== '' && fullVideoUrl !== '') {
+  if (fullPosterUrl !== "" && fullVideoUrl !== "") {
     return (
       // biome-ignore lint/a11y/useMediaCaption: <explanation>
       <video
@@ -47,10 +47,10 @@ const Video = ({
       >
         <source src={fullVideoUrl} type={media?.data.attributes.mime} />
       </video>
-    )
+    );
   }
 
-  return <div>no media</div>
-}
+  return <div>no media</div>;
+};
 
-export default Video
+export default Video;

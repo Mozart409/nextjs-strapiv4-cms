@@ -1,70 +1,70 @@
-'use client'
-import { useCallback, useEffect, useState } from 'react'
-import { fetchAPI } from '../utils/fetch-api'
+"use client";
+import { useCallback, useEffect, useState } from "react";
+import { fetchAPI } from "../utils/fetch-api";
 
-import Loader from '../components/Loader'
-import PageHeader from '../components/PageHeader'
-import Blog from '../views/blog-list'
+import Loader from "../components/Loader";
+import PageHeader from "../components/PageHeader";
+import Blog from "../views/blog-list";
 
 interface Meta {
   pagination: {
-    start: number
-    limit: number
-    total: number
-  }
+    start: number;
+    limit: number;
+    total: number;
+  };
 }
 
 export default function Profile() {
-  const [meta, setMeta] = useState<Meta | undefined>()
-  const [data, setData] = useState<any>([])
-  const [isLoading, setLoading] = useState(true)
+  const [meta, setMeta] = useState<Meta | undefined>();
+  const [data, setData] = useState<any>([]);
+  const [isLoading, setLoading] = useState(true);
 
   const fetchData = useCallback(async (start: number, limit: number) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN
-      const path = '/articles'
+      const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+      const path = "/articles";
       const urlParamsObject = {
-        sort: { createdAt: 'desc' },
+        sort: { createdAt: "desc" },
         populate: {
-          cover: { fields: ['url'] },
-          category: { populate: '*' },
+          cover: { fields: ["url"] },
+          category: { populate: "*" },
           authorsBio: {
-            populate: '*'
-          }
+            populate: "*",
+          },
         },
         pagination: {
           start: start,
-          limit: limit
-        }
-      }
-      const options = { headers: { Authorization: `Bearer ${token}` } }
-      const responseData: any = await fetchAPI(path, urlParamsObject, options)
+          limit: limit,
+        },
+      };
+      const options = { headers: { Authorization: `Bearer ${token}` } };
+      const responseData: any = await fetchAPI(path, urlParamsObject, options);
 
       if (start === 0) {
-        setData(responseData.data)
+        setData(responseData.data);
       } else {
-        setData((prevData: any[]) => [...prevData, ...responseData.data])
+        setData((prevData: any[]) => [...prevData, ...responseData.data]);
       }
 
-      setMeta(responseData.meta)
+      setMeta(responseData.meta);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start + meta!.pagination.limit
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT))
+    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
+    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
   }
 
   useEffect(() => {
-    fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT))
-  }, [fetchData])
+    fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
+  }, [fetchData]);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
   return (
     <div>
@@ -84,5 +84,5 @@ export default function Profile() {
         )}
       </Blog>
     </div>
-  )
+  );
 }

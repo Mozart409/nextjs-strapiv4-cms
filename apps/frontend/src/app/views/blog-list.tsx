@@ -80,8 +80,9 @@ export default function PostList({
                   src={imageUrl}
                   style={{
                     maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    height: "auto",
+                  }}
+                />
               )}
               <div className="relative p-6 space-y-2">
                 {avatarUrl && (
@@ -93,8 +94,9 @@ export default function PostList({
                     className="object-cover absolute right-4 -top-8 w-16 h-16 rounded-full"
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      height: "auto",
+                    }}
+                  />
                 )}
 
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">

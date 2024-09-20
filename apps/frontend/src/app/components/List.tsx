@@ -16,7 +16,7 @@ interface ListProps {
 export default function List({ data }: ListProps) {
   return (
     <>
-      <div className="container max-w-3xl mx-auto mt-5 lg:text-left grid grid-cols-1 space-y-4">
+      <div className="container grid grid-cols-1 mx-auto mt-5 space-y-4 max-w-3xl lg:text-left">
         {data.listElement.map((item) => (
           <ul key={item.id}>
             <li className="list-inside align-baseline list-check">

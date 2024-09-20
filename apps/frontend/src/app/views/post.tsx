@@ -54,8 +54,9 @@ export default function Post({ data }: { data: Article }) {
           className="object-cover w-full h-96 rounded-lg"
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        />
       )}
       <div className="space-y-6">
         <h1 className="text-5xl font-bold leading-tight">{title}</h1>
@@ -70,8 +71,9 @@ export default function Post({ data }: { data: Article }) {
                 className="w-14 h-14 rounded-full border dark:bg-gray-500 dark:border-gray-700"
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
             )}
             <p className="dark:text-violet-400 text-md">
               {author && author.name} • {formatDate(publishedAt)}

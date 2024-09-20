@@ -39,8 +39,9 @@ function Testimonial({ text, authorName, picture }: Testimonial) {
             height={200}
             style={{
               maxWidth: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          />
         </div>
       </div>
       <div className="relative text-center">

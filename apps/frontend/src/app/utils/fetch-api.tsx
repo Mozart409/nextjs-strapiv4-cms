@@ -19,11 +19,9 @@ export async function fetchAPI2(
 
     // Build request URL
     const queryString = qs.stringify(urlParamsObject);
-    const requestUrl = `${
-      getStrapiURL(
-        `/api${path}${queryString ? `?${queryString}` : ""}`,
-      )
-    }`;
+    const requestUrl = `${getStrapiURL(
+      `/api${path}${queryString ? `?${queryString}` : ""}`,
+    )}`;
 
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
@@ -46,11 +44,9 @@ export async function fetchAPI(
   try {
     // Build request URL
     const queryString = qs.stringify(urlParamsObject);
-    const requestUrl = `${
-      getStrapiURL(
-        `/api${path}${queryString ? `?${queryString}` : ""}`,
-      )
-    }`;
+    const requestUrl = `${getStrapiURL(
+      `/api${path}${queryString ? `?${queryString}` : ""}`,
+    )}`;
     // console.debug("requestUrl", requestUrl);
     // Trigger API call using wretch
     const data = await wretch(requestUrl)

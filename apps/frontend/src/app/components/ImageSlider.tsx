@@ -35,8 +35,9 @@ export default function Slideshow({ data }: { data: SlidShowProps }) {
                   src={imageUrl}
                   style={{
                     maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    height: "auto",
+                  }}
+                />
               )}
             </div>
           );

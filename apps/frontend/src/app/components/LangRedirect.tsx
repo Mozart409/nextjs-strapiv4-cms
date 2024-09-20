@@ -29,8 +29,9 @@ export default function LangRedirect() {
             height={600}
             style={{
               maxWidth: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          />
         </div>
       </div>
     </section>

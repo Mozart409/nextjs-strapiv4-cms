@@ -1,57 +1,57 @@
-import PageHeader from '@/app/components/PageHeader'
-import { fetchAPI } from '@/app/utils/fetch-api'
-import BlogList from '@/app/views/blog-list'
+import PageHeader from "@/app/components/PageHeader";
+import { fetchAPI } from "@/app/utils/fetch-api";
+import BlogList from "@/app/views/blog-list";
 
 async function fetchPostsByCategory(filter: string) {
   try {
-    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN
-    const path = `/articles`
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/articles`;
     const urlParamsObject = {
-      sort: { createdAt: 'desc' },
+      sort: { createdAt: "desc" },
       filters: {
         category: {
-          slug: filter
-        }
+          slug: filter,
+        },
       },
       populate: {
-        cover: { fields: ['url'] },
+        cover: { fields: ["url"] },
         category: {
-          populate: '*'
+          populate: "*",
         },
         authorsBio: {
-          populate: '*'
-        }
-      }
-    }
-    const options = { headers: { Authorization: `Bearer ${token}` } }
-    const responseData = await fetchAPI(path, urlParamsObject, options)
-    return responseData
+          populate: "*",
+        },
+      },
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const responseData = await fetchAPI(path, urlParamsObject, options);
+    return responseData;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
 export default async function CategoryRoute({
-  params
+  params,
 }: {
-  params: { category: string }
+  params: { category: string };
 }) {
-  const filter = params.category
-  const { data }: any = await fetchPostsByCategory(filter)
+  const filter = params.category;
+  const { data }: any = await fetchPostsByCategory(filter);
 
   // TODO: CREATE A COMPONENT FOR THIS
-  if (data.length === 0) return <div>Not Posts In this category</div>
+  if (data.length === 0) return <div>Not Posts In this category</div>;
 
-  const { name, description } = data[0]?.attributes.category.data.attributes
+  const { name, description } = data[0]?.attributes.category.data.attributes;
 
   return (
     <div>
       <PageHeader heading={name} text={description} />
       <BlogList data={data} />
     </div>
-  )
+  );
 }
 
 export async function generateStaticParams() {
-  return []
+  return [];
 }

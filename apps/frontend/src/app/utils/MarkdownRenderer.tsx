@@ -1,8 +1,8 @@
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface MarkDownProps {
-  text: string
+  text: string;
 }
 
 export default function MarkdownRenderer({ text }: MarkDownProps) {
@@ -15,5 +15,5 @@ export default function MarkdownRenderer({ text }: MarkDownProps) {
         remarkPlugins={[remarkGfm]}
       />
     </>
-  )
+  );
 }
