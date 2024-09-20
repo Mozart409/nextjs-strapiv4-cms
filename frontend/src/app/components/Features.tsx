@@ -66,3 +66,14 @@ export default function Features({ data }: FeaturesProps) {
     </section>
   );
 }
+
+export function FeatureRowGroup({ data }: FeaturesProps) {
+  return (
+    <section className="lg:py-24 dark:text-gray-100 dark:bg-black m:py-12">
+      <div className="container grid gap-4 justify-center my-6 mx-auto sm:grid-cols-2 lg:grid-cols-3">
+        {console.debug(data)}
+        {/* {data.feature.map((feature: Feature, index: number) => <Feature key={index} {...feature} />)} */}
+      </div>
+    </section>
+  );
+}
