@@ -53,6 +53,25 @@ const populate = {
       image: {
         fields: ["url", "alternativeText", "caption", "width", "height"],
       },
+      feature: {
+        populate: true,
+      },
+      featureRowsGroup: {
+        populate: true,
+      },
+      "feature-rows-group": {
+        populate: true,
+      },
+      features: {
+        populate: {
+          "feature-rows-group": {
+            populate: true,
+          },
+        },
+      },
+      featureRows: {
+        populate: true,
+      },
     },
   },
   seo: {
