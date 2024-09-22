@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactElement } from "react";
+import GradientHeroRenderer from "../utils/GradientHeroRenderer";
 import MarkdownRenderer from "../utils/MarkdownRenderer";
 import { getStrapiMedia } from "../utils/api-helpers";
 
@@ -120,7 +121,7 @@ function GradientHero({ data }: GradientHero): ReactElement {
             </div>
             <div className="relative mx-auto max-w-7xl">
               <div className="pt-8 text-center">
-                <MarkdownRenderer text={data.content} />
+                <GradientHeroRenderer text={data.content} />
               </div>
 
               <div className="grid grid-cols-1 gap-3 mx-auto mt-12 max-w-lg lg:grid-cols-1 lg:max-w-none">

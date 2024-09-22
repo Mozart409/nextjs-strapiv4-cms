@@ -34,8 +34,8 @@
     "styled-components": "^5.2.1"
   },
   "engines": {
-    "node": ">=18.17.0 <=20.x.x",
+    "node": ">=18.17.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.11.0"
 }

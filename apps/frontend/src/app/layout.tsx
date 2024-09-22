@@ -7,6 +7,7 @@ import { FALLBACK_SEO } from "@/app/utils/constants";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { Toaster } from "react-hot-toast";
 import { i18n } from "../../i18n-config";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
@@ -45,6 +46,7 @@ export async function generateMetadata({
 }: {
   params: { lang: string };
 }): Promise<Metadata> {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const meta: any = await getGlobal(params.lang);
 
   if (!meta.data) return FALLBACK_SEO;
@@ -68,9 +70,21 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const global: any = await getGlobal(params.lang);
-  // TODO: CREATE A CUSTOM ERROR PAGE
-  if (!global.data) return null;
+  if (!global.data) {
+    return (
+      <html lang={params.lang}>
+        <body>
+          <main className="flex flex-col px-4 min-h-screen dark:text-gray-100 dark:bg-black">
+            <div className="px-4 sm:px-6 lg:px-8">
+              <h1 className="text-3xl text-red-500">Error</h1>
+            </div>
+          </main>
+        </body>
+      </html>
+    );
+  }
 
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
@@ -121,6 +135,7 @@ export default async function RootLayout({
           socialLinks={footer.socialLinks}
         />
         <Analytics />
+        <Toaster />
       </body>
     </html>
   );

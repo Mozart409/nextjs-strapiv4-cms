@@ -28,8 +28,9 @@ function FooterLink({ url, text }: FooterLink) {
     <li className="flex">
       <Link
         href={url}
-        className={`hover:dark:text-violet-400 ${path === url && "dark:text-violet-400 dark:border-violet-400"
-          }}`}
+        className={`hover:dark:text-violet-400 ${
+          path === url && "dark:text-violet-400 dark:border-violet-400"
+        }}`}
       >
         {text}
       </Link>

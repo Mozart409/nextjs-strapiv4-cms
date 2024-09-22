@@ -39,9 +39,9 @@ export default async function CategoryRoute({
   const filter = params.category;
   const { data }: any = await fetchPostsByCategory(filter);
 
-  // TODO: CREATE A COMPONENT FOR THIS
   if (data.length === 0) return <div>Not Posts In this category</div>;
 
+  // biome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
   const { name, description } = data[0]?.attributes.category.data.attributes;
 
   return (
