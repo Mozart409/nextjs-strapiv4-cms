@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { z, ZodError } from "zod";
 
-
 export type FormState = {
   message: string;
 };
@@ -19,7 +18,8 @@ export const fromErrorToFormState = (error: unknown) => {
     };
     // if another error instance, return error message
     // e.g. database error
-  } if (error instanceof Error) {
+  }
+  if (error instanceof Error) {
     return {
       message: error.message,
     };
@@ -27,7 +27,7 @@ export const fromErrorToFormState = (error: unknown) => {
     // return generic error message
   }
   return {
-    message: 'An unknown error occurred',
+    message: "An unknown error occurred",
   };
 };
 
@@ -46,26 +46,42 @@ export type EmailSchema = z.infer<typeof EmailSchema>;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendResendEmail(
-  prevState: {
-    message: string;
-  },
-  formData: FormData,
-) {
+export async function sendResendEmail(formData: EmailSchema) {
   console.debug("formData", formData);
 
   try {
-    const { username, email, phonenumber, subject, message } =
+    /* const { username, email, phonenumber, subject, message } =
       EmailSchema.parse({
         username: formData.get("username") as string,
         email: formData.get("email") as string,
         phonenumber: formData.get("phonenumber") as string,
         subject: formData.get("subject") as string,
         message: formData.get("message") as string,
-      });
-    revalidatePath('/kontakt');
-    return { message: `✅ Email sent from ${email}` };
+      }); */
+    const { username, email, phonenumber, subject, message } =
+      EmailSchema.parse(formData);
 
+    const { data, error } = await resend.emails.send({
+      from: 'kontakt@ideal-coaching.com',
+      to: ['kontakt@ideal-coaching.com'],
+      subject: subject,
+      react: EmailTemplate({
+        username,
+        message,
+        email,
+        phonenumber,
+        subject,
+      }),
+
+    });
+    console.info("resend data", data);
+    console.error("resend error", error);
+
+    if (error) {
+      return { message: error.message };
+    }
+    revalidatePath("/kontakt");
+    return { message: `✅ Email sent from ${email}` };
   } catch (error) {
     return { message: fromErrorToFormState(error) };
   }
@@ -91,5 +107,4 @@ export async function sendResendEmail(
     } */
 
   // toast.success("Email sent successfully");
-
 }
