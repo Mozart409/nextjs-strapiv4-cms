@@ -18,7 +18,7 @@ interface Props {
 
 export default function ButtonActions({ data }: Props) {
   return (
-    <div key={data.id} className="mx-auto max-w-5xl mt-8">
+    <div key={data.id} className="mx-auto mt-8 max-w-5xl">
       <div className="py-6 px-8 text-center lg:px-32">
         {/* <h2 className="mb-10 text-4xl font-bold text-white">{data.title}</h2> */}
         {/* <p>{data.description}</p> */}

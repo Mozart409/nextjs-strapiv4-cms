@@ -62,8 +62,8 @@ export async function sendResendEmail(formData: EmailSchema) {
       EmailSchema.parse(formData);
 
     const { data, error } = await resend.emails.send({
-      from: 'kontakt@ideal-coaching.com',
-      to: ['kontakt@ideal-coaching.com'],
+      from: "kontakt@ideal-coaching.com",
+      to: ["kontakt@ideal-coaching.com"],
       subject: subject,
       react: EmailTemplate({
         username,
@@ -72,7 +72,6 @@ export async function sendResendEmail(formData: EmailSchema) {
         phonenumber,
         subject,
       }),
-
     });
     console.info("resend data", data);
     console.error("resend error", error);
