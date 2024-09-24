@@ -19,7 +19,7 @@ pre-commit:
       tags: frontend style
       files: git diff --name-only main
       glob: '*.{js,ts,jsx,tsx}'
-      run: pnpm run fmt {files}
+      run: pnpm run --filter frontend fmt {files}
 #     eslint:
 #       glob: "*.{js,ts,jsx,tsx}"
 #       run: yarn eslint {staged_files}
