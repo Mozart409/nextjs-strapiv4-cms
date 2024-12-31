@@ -62,9 +62,22 @@ export async function sendResendEmail(formData: EmailSchema) {
       EmailSchema.parse(formData);
 
     const { data, error } = await resend.emails.send({
-      from: "kontakt@ideal-coaching.com",
-      to: ["kontakt@ideal-coaching.com"],
+      from: "hallo@ideal-coaching.com",
+      to: ["hallo@ideal-coaching.com"],
       subject: subject,
+      tags: [
+        {
+          name: "category",
+          value: "strapi_email",
+        },
+      ],
+      text: EmailTemplate({
+        username,
+        message,
+        email,
+        phonenumber,
+        subject,
+      })?.toString(),
       react: EmailTemplate({
         username,
         message,
@@ -80,30 +93,8 @@ export async function sendResendEmail(formData: EmailSchema) {
       return { message: error.message };
     }
     revalidatePath("/kontakt");
-    return { message: `✅ Email sent from ${email}` };
+    return { message: `Email sent from ${email}` };
   } catch (error) {
     return { message: fromErrorToFormState(error) };
   }
-
-  /* try {
-
-        // const { email } = schema.parse(formData);
-        console.debug("formData", formData);
-        const { data, error } = await resend.emails.send({
-            from: email,
-            to: ["roberto@ideal-coaching.com"],
-            subject: "Hello world",
-            react: EmailTemplate({ firstName: "John" }),
-        });
-
-        if (error) {
-            return Response.json({ error }, { status: 500 });
-        }
-
-        return Response.json(data);
-    } catch (error) {
-        return Response.json({ error }, { status: 500 });
-    } */
-
-  // toast.success("Email sent successfully");
 }

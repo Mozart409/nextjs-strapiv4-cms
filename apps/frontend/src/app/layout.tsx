@@ -135,7 +135,7 @@ export default async function RootLayout({
           socialLinks={footer.socialLinks}
         />
         <Analytics />
-        <Toaster />
+        <Toaster toastOptions={{ duration: 7000 }} />
       </body>
     </html>
   );
