@@ -2,6 +2,8 @@
   "scripts": {
     "dev:backend": "pnpm run --filter backend dev",
     "dev:frontend": "pnpm run --filter frontend dev",
+    "be": "pnpm run --filter backend dev",
+    "fe": "pnpm run --filter frontend dev",
     "seed": "cd apps/backend && pnpm run strapi import -f ../seed-data.tar.gz",
     "export": "cd apps/backend && pnpm run strapi export --no-encrypt -f ../seed-data",
     "up": "docker compose up -d",
