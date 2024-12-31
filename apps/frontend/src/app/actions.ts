@@ -62,8 +62,8 @@ export async function sendResendEmail(formData: EmailSchema) {
       EmailSchema.parse(formData);
 
     const { data, error } = await resend.emails.send({
-      from: "hallo@ideal-coaching.com",
-      to: ["hallo@ideal-coaching.com"],
+      from: "kontakt@ideal-coaching.com",
+      to: ["kontakt@ideal-coaching.com"],
       subject: subject,
       tags: [
         {
