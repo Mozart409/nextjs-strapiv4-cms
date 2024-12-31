@@ -46,8 +46,15 @@ export type EmailSchema = z.infer<typeof EmailSchema>;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendResendEmail(formData: EmailSchema) {
-  console.debug("formData", formData);
+type TMessage = {
+  type: "error" | "success";
+  message: string;
+};
+
+export async function sendResendEmail(
+  formData: EmailSchema,
+): Promise<TMessage> {
+  console.info("formData", formData);
 
   try {
     /* const { username, email, phonenumber, subject, message } =
@@ -61,9 +68,11 @@ export async function sendResendEmail(formData: EmailSchema) {
     const { username, email, phonenumber, subject, message } =
       EmailSchema.parse(formData);
 
+    const plaintext = `Email from ${email}, subject: ${subject}, phone: ${phonenumber}, message: ${message}`;
+
     const { data, error } = await resend.emails.send({
-      from: "kontakt@ideal-coaching.com",
-      to: ["kontakt@ideal-coaching.com"],
+      from: "hallo@ideal-coaching.com",
+      to: ["roberto.morbio@ideal-coaching.de"],
       subject: subject,
       tags: [
         {
@@ -71,13 +80,7 @@ export async function sendResendEmail(formData: EmailSchema) {
           value: "strapi_email",
         },
       ],
-      text: EmailTemplate({
-        username,
-        message,
-        email,
-        phonenumber,
-        subject,
-      })?.toString(),
+      text: plaintext,
       react: EmailTemplate({
         username,
         message,
@@ -90,11 +93,11 @@ export async function sendResendEmail(formData: EmailSchema) {
     console.error("resend error", error);
 
     if (error) {
-      return { message: error.message };
+      return { type: "error", message: error.message };
     }
     revalidatePath("/kontakt");
-    return { message: `Email sent from ${email}` };
+    return { type: "success", message: `Email sent from ${email}` };
   } catch (error) {
-    return { message: fromErrorToFormState(error) };
+    return { type: "error", message: fromErrorToFormState(error).message };
   }
 }

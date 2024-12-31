@@ -22,8 +22,12 @@ export function SendEmailForm({
   const onSubmit = async (data: EmailSchema) => {
     try {
       console.log(data);
-      const { message } = await sendResendEmail(data);
-      toast.success(`${message}`);
+      const email = await sendResendEmail(data);
+      if (email.type === "error") {
+        toast.error(`${email.message}`);
+      } else {
+        toast.success(`${email.message}`);
+      }
     } catch (error) {
       console.error(error);
       toast.error(`Email not sent ${error}`);
