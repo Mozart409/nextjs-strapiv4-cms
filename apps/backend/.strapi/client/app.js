@@ -6,9 +6,9 @@ import graphql from "@strapi/plugin-graphql/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import seo from "@strapi/plugin-seo/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import { renderAdmin } from "@strapi/strapi/admin";
 import requestId from "strapi-plugin-request-id/strapi-admin";
 import restCache from "strapi-plugin-rest-cache/strapi-admin";
-import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
   plugins: {

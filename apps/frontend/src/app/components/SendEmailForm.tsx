@@ -1,10 +1,10 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import wretch from "wretch";
 import { type EmailSchema, sendResendEmail } from "../actions";
 import { renderButtonStyle } from "../utils/render-button-style";
-import wretch from "wretch";
-import toast from "react-hot-toast";
 
 export function SendEmailForm({
   placeholder,

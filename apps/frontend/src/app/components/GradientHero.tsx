@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactElement } from "react";
+import { getStrapiMedia } from "../utils/api-helpers";
 import GradientHeroRenderer from "../utils/GradientHeroRenderer";
 import MarkdownRenderer from "../utils/MarkdownRenderer";
-import { getStrapiMedia } from "../utils/api-helpers";
 
 interface GradientHero {
   data: {
