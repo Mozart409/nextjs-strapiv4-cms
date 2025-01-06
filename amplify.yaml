@@ -15,8 +15,12 @@ applications:
         - pnpm next build
         - ls -lah
     artifacts:
-      baseDirectory: .next
+      baseDirectory: apps/frontend/.next
       files:
       - '**/*'
-    buildPath: .next
+    cache:
+      paths:
+      - .next/cache/**/*
+      - node_modules/**/*
+    buildPath: /
   appRoot: apps/frontend
