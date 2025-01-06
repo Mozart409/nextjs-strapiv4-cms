@@ -14,7 +14,7 @@ applications:
         - pwd
         - pnpm next build
     artifacts:
-      baseDirectory: apps/frontend/.next
+      baseDirectory: .next
       files:
       - '**/*'
     cache:
