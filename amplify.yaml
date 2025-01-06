@@ -1,0 +1,25 @@
+version: 1
+applications:
+- frontend:
+    phases:
+      preBuild:
+        commands:
+        - corepack enable
+        - ls -lah
+        - pwd
+        - pnpm install
+      build:
+        commands:
+        - ls -lah
+        - pwd
+        - pnpm next build
+    artifacts:
+      baseDirectory: apps/frontend/.next
+      files:
+      - '**/*'
+    cache:
+      paths:
+      - .next/cache/**/*
+      - node_modules/**/*
+    buildPath: apps/frontend
+  appRoot: apps/frontend
