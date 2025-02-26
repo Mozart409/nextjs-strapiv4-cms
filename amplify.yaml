@@ -23,4 +23,4 @@ applications:
       - .next/cache/**/*
       - node_modules/**/*
     buildPath: /
-  appRoot: apps/frontend
+  appRoot: 'apps/frontend'
