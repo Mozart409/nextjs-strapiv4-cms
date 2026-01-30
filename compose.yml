@@ -1,26 +1,42 @@
 services:
   db:
-    image: bitnami/postgresql:16.2.0-debian-12-r15
+    container_name: db
+    image: postgres:17-alpine
     environment:
-      - POSTGRESQL_USERNAME=strapi
-      - POSTGRESQL_PASSWORD=strapi
-      - POSTGRESQL_DATABASE=strapi
+      - POSTGRES_USER=strapi
+      - POSTGRES_PASSWORD=strapi
+      - POSTGRES_DB=strapi
     ports:
       - 5555:5432
     volumes:
-      - postgres_data:/bitnami/postgresql
-  redis:
-    image: bitnami/redis:latest
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strapi -d strapi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  valkey:
+    container_name: valkey
+    image: valkey/valkey:8
     ports:
       - 6379:6379
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - valkey_data:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   insight:
-    image: redis/redisinsight:2.42
+    container_name: insight
+    image: redis/redisinsight:2.70
     ports:
       - '5540:5540'
     depends_on:
-      - redis
+      valkey:
+        condition: service_healthy
 volumes:
   postgres_data:
-
+  valkey_data:
+  strapi_uploads:
