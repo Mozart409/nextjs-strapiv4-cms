@@ -7,3 +7,5 @@ readme-images
 seed-data.tar.gz
 postgres-data/
 seed-data/
+
+.direnv/

@@ -35,6 +35,9 @@
           biome
           pnpm
           typescript
+
+          # AI
+          opencode
         ];
 
         shellHook = ''
