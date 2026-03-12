@@ -65,8 +65,7 @@ export async function sendResendEmail(
         subject: formData.get("subject") as string,
         message: formData.get("message") as string,
       }); */
-    const { username, email, phonenumber, subject, message } =
-      EmailSchema.parse(formData);
+    const { username, email, phonenumber, subject, message } = EmailSchema.parse(formData);
 
     const plaintext = `Email from ${email}, subject: ${subject}, phone: ${phonenumber}, message: ${message}`;
 

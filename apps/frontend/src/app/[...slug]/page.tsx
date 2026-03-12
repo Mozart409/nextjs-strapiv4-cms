@@ -35,7 +35,5 @@ export default async function PageRoute({ params }: Props) {
     );
   }
   const contentSections = page.data[0].attributes.contentSections;
-  return contentSections.map((section: any, index: number) =>
-    sectionRenderer(section, index),
-  );
+  return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }

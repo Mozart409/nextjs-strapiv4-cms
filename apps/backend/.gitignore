@@ -114,3 +114,5 @@ dist
 build
 .strapi-updater.json
 .env.production
+
+.strapi/

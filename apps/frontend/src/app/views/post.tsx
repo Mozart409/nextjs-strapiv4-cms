@@ -35,8 +35,7 @@ interface Article {
 }
 
 export default function Post({ data }: { data: Article }) {
-  const { title, description, publishedAt, cover, authorsBio } =
-    data.attributes;
+  const { title, description, publishedAt, cover, authorsBio } = data.attributes;
   const author = authorsBio.data?.attributes;
   const imageUrl = getStrapiMedia(cover.data?.attributes.url);
   const authorImgUrl = getStrapiMedia(
@@ -85,9 +84,7 @@ export default function Post({ data }: { data: Article }) {
       <div className="dark:text-gray-100">
         <p>{description}</p>
 
-        {data.attributes.blocks.map((section: any, index: number) =>
-          postRenderer(section, index),
-        )}
+        {data.attributes.blocks.map((section: any, index: number) => postRenderer(section, index))}
       </div>
     </article>
   );

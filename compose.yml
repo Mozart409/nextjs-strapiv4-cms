@@ -16,27 +16,6 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
-  valkey:
-    container_name: valkey
-    image: valkey/valkey:8
-    ports:
-      - 6379:6379
-    volumes:
-      - valkey_data:/data
-    healthcheck:
-      test: ["CMD", "valkey-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-  insight:
-    container_name: insight
-    image: redis/redisinsight:2.70
-    ports:
-      - '5540:5540'
-    depends_on:
-      valkey:
-        condition: service_healthy
 volumes:
   postgres_data:
-  valkey_data:
   strapi_uploads:

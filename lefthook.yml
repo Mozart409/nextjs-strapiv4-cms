@@ -3,6 +3,5 @@ pre-commit:
   commands:
     biome:
       tags: frontend style
-      files: git diff --name-only main
-      glob: '*.{js,ts,jsx,tsx}'
-      run: pnpm run --filter frontend fmt {files}
+      glob: '*.{js,ts,jsx,tsx,json,yaml,yml,md}'
+      run: dprint fmt
