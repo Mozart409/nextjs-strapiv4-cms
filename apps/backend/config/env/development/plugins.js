@@ -2,9 +2,6 @@ module.exports = ({ env }) => ({
   seo: {
     enabled: true,
   },
-  "request-id": {
-    enabled: true,
-  },
   email: {
     config: {
       provider: "sendgrid",
@@ -21,7 +18,7 @@ module.exports = ({ env }) => ({
     config: {
       endpoint: "/graphql",
       shadowCRUD: true,
-      playgroundAlways: false,
+      landingPage: false,
       depthLimit: 12,
       amountLimit: 100,
       apolloServer: {

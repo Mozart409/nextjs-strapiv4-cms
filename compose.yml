@@ -1,7 +1,7 @@
 services:
   db:
     container_name: db
-    image: postgres:17-alpine
+    image: postgres:18-alpine
     environment:
       - POSTGRES_USER=strapi
       - POSTGRES_PASSWORD=strapi
@@ -9,7 +9,7 @@ services:
     ports:
       - 5555:5432
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U strapi -d strapi"]
       interval: 10s

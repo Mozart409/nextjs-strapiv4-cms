@@ -25,13 +25,14 @@
           lefthook
           # check for security issues
           kics
+          trivy
           just
           # fmt
           dprint
           # Node
           ni
           biome
-          pnpm
+          pnpm_10_29_2
           typescript
           keep-sorted
           cocogitto

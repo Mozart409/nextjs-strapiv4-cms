@@ -9,3 +9,4 @@ postgres-data/
 seed-data/
 
 .direnv/
+/apps/backend/types/generated

@@ -2,9 +2,6 @@ module.exports = ({ env }) => ({
   seo: {
     enabled: true,
   },
-  "request-id": {
-    enabled: true,
-  },
   upload: {
     config: {
       provider: "aws-s3",
