@@ -31,7 +31,7 @@
           # Node
           ni
           biome
-          pnpm
+          pnpm_10_29_2
           typescript
           keep-sorted
           cocogitto

@@ -15,7 +15,7 @@ RUN apk update && apk add --no-cache \
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
+RUN corepack enable && corepack prepare pnpm@10.29.2 --activate
 
 WORKDIR /opt/
 
@@ -42,7 +42,7 @@ RUN apk add --no-cache vips-dev curl
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
+RUN corepack enable && corepack prepare pnpm@10.29.2 --activate
 
 WORKDIR /opt/
 
