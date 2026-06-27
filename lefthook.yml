@@ -5,3 +5,7 @@ pre-commit:
       tags: frontend style
       glob: '*.{js,ts,jsx,tsx,json,yaml,yml,md}'
       run: dprint fmt
+commit-msg:
+  jobs:
+    - name: cog verify
+      run: cog verify --file {1}
