@@ -4,6 +4,9 @@
     "dev:frontend": "pnpm run --filter frontend dev",
     "be": "pnpm run --filter backend dev",
     "fe": "pnpm run --filter frontend dev",
+    "seed": "pnpm run --filter backend seed",
+    "seed:legacy": "cd apps/backend && pnpm run strapi import -f ../seed-data.tar.gz",
+    "export": "cd apps/backend && pnpm run strapi export --no-encrypt -f ../seed-data",
     "up": "podman compose up -d",
     "down": "podman compose down",
     "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'"

@@ -12,7 +12,8 @@
     "dev": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
     "@strapi-community/plugin-seo": "^2.1.1",
