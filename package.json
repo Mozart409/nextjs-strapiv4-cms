@@ -6,7 +6,8 @@
     "fe": "pnpm run --filter frontend dev",
     "seed": "cd apps/backend && pnpm run strapi import -f ../seed-data.tar.gz",
     "export": "cd apps/backend && pnpm run strapi export --no-encrypt -f ../seed-data",
-    "up": "docker compose up -d",
+    "up": "podman compose up -d",
+    "down": "podman compose down",
     "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'"
   },
   "devDependencies": {
