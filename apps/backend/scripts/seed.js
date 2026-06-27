@@ -16,7 +16,7 @@ if (fs.existsSync(envPath)) {
     const key = trimmed.slice(0, eqIndex).trim();
     let value = trimmed.slice(eqIndex + 1).trim();
     // Remove surrounding quotes if present
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    if ((value.startsWith("\"") && value.endsWith("\"")) || (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
     if (!process.env[key]) {
@@ -181,7 +181,8 @@ const SEED_CONFIG = {
       blocks: [
         {
           __component: "shared.rich-text",
-          body: "<p>Strapi is an open-source headless CMS that makes it easy to create and manage content. In this post we cover installation, content types, and the REST API.</p>",
+          body:
+            "<p>Strapi is an open-source headless CMS that makes it easy to create and manage content. In this post we cover installation, content types, and the REST API.</p>",
         },
       ],
     },
@@ -192,7 +193,8 @@ const SEED_CONFIG = {
       blocks: [
         {
           __component: "shared.rich-text",
-          body: "<p>Next.js App Router, Server Components, and caching strategies can dramatically improve your site performance. Here are our favorite tips.</p>",
+          body:
+            "<p>Next.js App Router, Server Components, and caching strategies can dramatically improve your site performance. Here are our favorite tips.</p>",
         },
       ],
     },

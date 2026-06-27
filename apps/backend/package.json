@@ -33,5 +33,5 @@
     "node": ">=22.x.x <=24.x.x",
     "npm": ">=7.0.0"
   },
-  "packageManager": "pnpm@10"
+  "packageManager": "pnpm@10.29.2"
 }

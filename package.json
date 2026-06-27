@@ -2,11 +2,13 @@
   "scripts": {
     "dev:backend": "pnpm run --filter backend dev",
     "dev:frontend": "pnpm run --filter frontend dev",
-    "be": "pnpm run --filter backend dev",
+    "be": "pnpm run --filter backend build",
     "fe": "pnpm run --filter frontend dev",
     "seed": "pnpm run --filter backend seed",
     "seed:legacy": "cd apps/backend && pnpm run strapi import -f ../seed-data.tar.gz",
     "export": "cd apps/backend && pnpm run strapi export --no-encrypt -f ../seed-data",
+    "build:backend": "podman build -t nextjs-strapiv4-cms/backend -f apps/backend/Dockerfile .",
+    "scan:backend": "pnpm run build:backend && trivy image --exit-code 1 --severity HIGH,CRITICAL nextjs-strapiv4-cms/backend && kics scan -p apps/backend/Dockerfile --no-progress --fail-on critical",
     "up": "podman compose up -d",
     "down": "podman compose down",
     "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'"

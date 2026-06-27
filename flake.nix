@@ -25,6 +25,7 @@
           lefthook
           # check for security issues
           kics
+          trivy
           just
           # fmt
           dprint

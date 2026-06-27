@@ -3,3 +3,10 @@ packages:
   - 'apps/*'
 
 strictPeerDependencies: false
+
+onlyBuiltDependencies:
+  - '@apollo/protobufjs'
+  - '@swc/core'
+  - 'core-js-pure'
+  - 'esbuild'
+  - 'sharp'

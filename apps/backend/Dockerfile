@@ -1,4 +1,5 @@
 # Multi-stage build for production Strapi v5 (monorepo)
+# Workspace only contains apps/backend, so we install from root and filter is unnecessary
 FROM node:22-alpine AS build
 
 RUN apk update && apk add --no-cache \
@@ -19,16 +20,18 @@ RUN corepack enable && corepack prepare pnpm@10.29.2 --activate
 
 WORKDIR /opt/
 
-# Copy workspace config and lockfile
+# Copy workspace root files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Copy backend package manifest
 COPY apps/backend/package.json ./apps/backend/
 
-# Install dependencies for backend only
-RUN pnpm install --frozen-lockfile --filter backend
+# Install dependencies (backend is the only workspace package)
+RUN pnpm install --frozen-lockfile
 
 ENV PATH=/opt/node_modules/.bin:$PATH
 
-# Copy backend source
+# Copy backend source and build
 COPY apps/backend ./apps/backend
 
 WORKDIR /opt/apps/backend
@@ -46,12 +49,17 @@ RUN corepack enable && corepack prepare pnpm@10.29.2 --activate
 
 WORKDIR /opt/
 
-# Copy workspace files
+# Copy workspace node_modules (pnpm .pnpm store + hoisted deps)
 COPY --from=build /opt/node_modules ./node_modules
 COPY --from=build /opt/apps/backend/node_modules ./apps/backend/node_modules
 
 WORKDIR /opt/apps/backend
+
+# Copy built backend (includes src, config, build, .strapi, package.json)
 COPY --from=build /opt/apps/backend ./
+
+# Ensure runtime directories exist
+RUN mkdir -p .tmp public/uploads
 
 ENV PATH=/opt/node_modules/.bin:/opt/apps/backend/node_modules/.bin:$PATH
 
