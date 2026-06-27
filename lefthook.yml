@@ -5,6 +5,10 @@ pre-commit:
       tags: frontend style
       glob: '*.{js,ts,jsx,tsx,json,yaml,yml,md}'
       run: dprint fmt
+    keep-sorted:
+      tags: frontend style
+      glob: '*.{js,ts,jsx,tsx}'
+      run: keep-sorted {staged_files}
 commit-msg:
   jobs:
     - name: cog verify
