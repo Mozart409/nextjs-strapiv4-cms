@@ -4,20 +4,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    nixos-anywhere.url = "github:nix-community/nixos-anywhere";
   };
 
   outputs = {
     self,
     nixpkgs,
     flake-utils,
-    nixos-anywhere,
   }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          # keep-sorted start
           podman
           podman-compose
           podman-tui
@@ -30,14 +29,16 @@
           # fmt
           dprint
           # Node
-          bun
           ni
           biome
           pnpm
           typescript
+          keep-sorted
+          cocogitto
 
           # AI
           opencode
+          # keep-sorted end
         ];
 
         shellHook = ''
