@@ -10,7 +10,7 @@
 const populate = {
   contentSections: {
     on: {
-      "sections.bottom-actions": { populate: true },
+      "sections.bottom-actions": { populate: { buttons: true } },
       "sections.dangerous-html": { populate: true },
       "sections.dynamic-content": { populate: true },
       "sections.feature-columns-group": {
