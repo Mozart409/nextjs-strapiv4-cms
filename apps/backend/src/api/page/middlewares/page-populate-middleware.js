@@ -1,73 +1,45 @@
-"use strict";
-
 /**
  * `page-populate-middleware` middleware
+ *
+ * Strapi v5: relations/media inside a dynamic zone (polymorphic structure)
+ * cannot be targeted with a generic `populate` object. They must be populated
+ * per-component through the fragment API (`on`). See:
+ * https://docs.strapi.io/dev-docs/api/rest/populate-select#populate-fragments
  */
 
 const populate = {
   contentSections: {
-    populate: {
-      picture: {
-        fields: ["url", "alternativeText", "caption", "width", "height"],
+    on: {
+      "sections.bottom-actions": { populate: true },
+      "sections.dangerous-html": { populate: true },
+      "sections.dynamic-content": { populate: true },
+      "sections.feature-columns-group": {
+        populate: { features: { populate: { icon: true } } },
       },
-      buttons: {
-        populate: true,
+      "sections.feature-rows-group": {
+        populate: { features: { populate: { media: true, link: true } } },
       },
-      image: {
-        fields: ["url", "alternativeText", "caption", "width", "height"],
+      "sections.features": {
+        populate: { feature: { populate: { media: true } } },
       },
-      feature: {
-        populate: {
-          fields: ["title", "description", "showLink", "newTab", "url", "text"],
-          media: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
-        },
+      "sections.gradient-hero": {
+        populate: { seminarCard: { populate: { image: true } } },
       },
-      testimonials: {
-        populate: {
-          picture: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
-        },
+      "sections.heading": { populate: true },
+      "sections.hero": { populate: { picture: true, buttons: true } },
+      "sections.image": { populate: { picture: true, link: true } },
+      "sections.large-video": { populate: { video: true, poster: true } },
+      "sections.lead-form": { populate: { submitButton: true } },
+      "sections.list": { populate: { listElement: true } },
+      "sections.pricing": {
+        populate: { plans: { populate: { product_features: true } } },
       },
-      plans: {
-        populate: ["product_features"],
+      "sections.rich-text": { populate: true },
+      "sections.seminar-group": {
+        populate: { seminarCard: { populate: { image: true } } },
       },
-      submitButton: {
-        populate: true,
-      },
-      list: {
-        populate: true,
-      },
-      listElement: {
-        populate: true,
-      },
-      seminarCard: {
-        populate: {
-          image: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
-        },
-      },
-      richText: {
-        populate: true,
-      },
-      features: {
-        populate: {
-          media: true,
-          link: true,
-        },
-      },
-      featuresGroup: {
-        populate: {
-          features: {
-            populate: {
-              media: true,
-              link: true,
-            },
-          },
-        },
+      "sections.testimonials-group": {
+        populate: { testimonials: { populate: { picture: true } } },
       },
     },
   },
@@ -80,13 +52,15 @@ const populate = {
 module.exports = (config, { strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
+    const { filters, locale } = ctx.query;
+
     ctx.query = {
       populate,
-      filters: { slug: ctx.query.filters.slug },
-      locale: ctx.query.locale,
+      // Preserve the slug filter only when it was actually sent; calling
+      // /api/pages with no filters must not crash (was: `filters.slug` on undefined).
+      ...(filters?.slug ? { filters: { slug: filters.slug } } : {}),
+      ...(locale ? { locale } : {}),
     };
-
-    //  console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
     await next();
   };
