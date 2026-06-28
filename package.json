@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "pnpm run --filter backend dev",
     "dev:backend": "pnpm run --filter backend dev",
     "dev:frontend": "pnpm run --filter frontend dev",
     "be": "pnpm run --filter backend build",
