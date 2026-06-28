@@ -20,27 +20,24 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           # keep-sorted start
-
           biome
           claude-code
           cocogitto
           dive
-          # fmt
           dprint
           just
           keep-sorted
-          # check for security issues
           kics
           lazydocker
           lefthook
-          # Node
           ni
-          # AI
           opencode
           pnpm_10_29_2
           podman
           podman-compose
           podman-tui
+          postgresql_16
+          railway
           trivy
           typescript
           # keep-sorted end
