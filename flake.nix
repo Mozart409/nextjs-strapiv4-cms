@@ -12,33 +12,37 @@
     flake-utils,
   }:
     flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           # keep-sorted start
+
+          biome
+          claude-code
+          cocogitto
+          dive
+          # fmt
+          dprint
+          just
+          keep-sorted
+          # check for security issues
+          kics
+          lazydocker
+          lefthook
+          # Node
+          ni
+          # AI
+          opencode
+          pnpm_10_29_2
           podman
           podman-compose
           podman-tui
-          dive
-          lazydocker
-          lefthook
-          # check for security issues
-          kics
           trivy
-          just
-          # fmt
-          dprint
-          # Node
-          ni
-          biome
-          pnpm_10_29_2
           typescript
-          keep-sorted
-          cocogitto
-
-          # AI
-          opencode
           # keep-sorted end
         ];
 

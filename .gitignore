@@ -10,3 +10,4 @@ seed-data/
 
 .direnv/
 /apps/backend/types/generated
+/.claude/settings.local.json
