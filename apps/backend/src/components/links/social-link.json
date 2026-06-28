@@ -20,14 +20,7 @@
     },
     "social": {
       "type": "enumeration",
-      "enum": [
-        "YOUTUBE",
-        "TWITTER",
-        "DISCORD",
-        "XING",
-        "LINKEDIN",
-        "WEBSITE"
-      ],
+      "enum": ["YOUTUBE", "TWITTER", "DISCORD", "XING", "LINKEDIN", "WEBSITE"],
       "default": "WEBSITE",
       "required": true
     }
