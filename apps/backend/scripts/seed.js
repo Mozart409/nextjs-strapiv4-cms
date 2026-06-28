@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-"use strict";
 
 const fs = require("fs");
 const path = require("path");
@@ -16,7 +15,10 @@ if (fs.existsSync(envPath)) {
     const key = trimmed.slice(0, eqIndex).trim();
     let value = trimmed.slice(eqIndex + 1).trim();
     // Remove surrounding quotes if present
-    if ((value.startsWith("\"") && value.endsWith("\"")) || (value.startsWith("'") && value.endsWith("'"))) {
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
       value = value.slice(1, -1);
     }
     if (!process.env[key]) {
@@ -79,10 +81,21 @@ const SEED_CONFIG = {
         {
           __component: "sections.hero",
           title: "Welcome to My Awesome Site",
-          description: "Built with Strapi and Next.js for blazing-fast performance.",
+          description:
+            "Built with Strapi and Next.js for blazing-fast performance.",
           buttons: [
-            { url: "/about", newTab: false, text: "Learn More", type: "primary" },
-            { url: "/contact", newTab: false, text: "Get Started", type: "secondary" },
+            {
+              url: "/about",
+              newTab: false,
+              text: "Learn More",
+              type: "primary",
+            },
+            {
+              url: "/contact",
+              newTab: false,
+              text: "Get Started",
+              type: "secondary",
+            },
           ],
         },
         {
@@ -97,10 +110,86 @@ const SEED_CONFIG = {
           content:
             "<p>We combine the power of <strong>Strapi</strong> as a headless CMS with <strong>Next.js</strong> for server-side rendering and static site generation. The result is a fast, secure, and scalable web application.</p>",
         },
+        {
+          __component: "sections.features",
+          heading: "Our Core Services",
+          description:
+            "We offer a comprehensive suite of solutions to power your digital presence.",
+          feature: [
+            {
+              title: "Headless CMS",
+              description:
+                "Flexible content management with Strapi, giving you full control over your data structures.",
+              showLink: false,
+              newTab: false,
+            },
+            {
+              title: "Blazing Fast Frontend",
+              description:
+                "Static generation and server-side rendering with Next.js for optimal performance.",
+              showLink: false,
+              newTab: false,
+            },
+            {
+              title: "API-First Architecture",
+              description:
+                "RESTful and GraphQL APIs that connect your content to any frontend or device.",
+              showLink: false,
+              newTab: false,
+            },
+            {
+              title: "Developer Experience",
+              description:
+                "TypeScript, hot reload, and a modern toolchain for productive development.",
+              showLink: false,
+              newTab: false,
+            },
+          ],
+        },
+        {
+          __component: "sections.testimonials-group",
+          title: "What Our Clients Say",
+          description:
+            "Hear from teams who have transformed their web stack with us.",
+          testimonials: [
+            {
+              text: "This stack saved us months of development time. The flexibility of Strapi combined with Next.js performance is unbeatable.",
+              authorName: "Sarah Chen",
+            },
+            {
+              text: "We migrated from a monolithic CMS and never looked back. Our page loads went from 4s to under 1s.",
+              authorName: "Marcus Rivera",
+            },
+            {
+              text: "The developer experience is exceptional. Our team was productive from day one.",
+              authorName: "Priya Patel",
+            },
+          ],
+        },
+        {
+          __component: "sections.bottom-actions",
+          title: "Ready to Get Started?",
+          description: "Let's build something great together.",
+          buttons: [
+            {
+              url: "/contact",
+              newTab: false,
+              text: "Contact Us",
+              type: "primary",
+            },
+            {
+              url: "/about",
+              newTab: false,
+              text: "Learn More",
+              type: "secondary",
+            },
+          ],
+        },
       ],
       seo: {
         metaTitle: "Home | My Awesome Site",
-        metaDescription: "Welcome to our demo site built with Strapi and Next.js.",
+        metaDescription:
+          "Welcome to our demo site built with Strapi and Next.js.",
       },
     },
     {
@@ -113,13 +202,69 @@ const SEED_CONFIG = {
         {
           __component: "sections.hero",
           title: "About Us",
-          description: "We are a small team passionate about building great web experiences.",
-          buttons: [{ url: "/contact", newTab: false, text: "Contact Us", type: "primary" }],
+          description:
+            "We are a small team passionate about building great web experiences.",
+          buttons: [
+            {
+              url: "/contact",
+              newTab: false,
+              text: "Contact Us",
+              type: "primary",
+            },
+          ],
         },
         {
           __component: "sections.rich-text",
           content:
             "<p>Founded in 2024, we started with a simple mission: make content management effortless and front-end development delightful. We believe in open source, modern tooling, and great developer experience.</p>",
+        },
+        {
+          __component: "sections.features",
+          heading: "Our Values",
+          description: "These principles guide everything we build.",
+          feature: [
+            {
+              title: "Open Source First",
+              description:
+                "We contribute back to the community and build on transparent, auditable foundations.",
+              showLink: false,
+              newTab: false,
+            },
+            {
+              title: "Performance Obsessed",
+              description:
+                "Every millisecond counts. We optimize relentlessly for speed and user experience.",
+              showLink: false,
+              newTab: false,
+            },
+            {
+              title: "Developer Happiness",
+              description:
+                "Great tools make great products. We invest in DX to empower our team.",
+              showLink: false,
+              newTab: false,
+            },
+          ],
+        },
+        {
+          __component: "sections.list",
+          listElement: [
+            {
+              title: "Innovation",
+              content:
+                "<p>We stay ahead of the curve, adopting modern technologies and best practices to deliver cutting-edge solutions.</p>",
+            },
+            {
+              title: "Collaboration",
+              content:
+                "<p>We work closely with our clients, treating every project as a true partnership from start to finish.</p>",
+            },
+            {
+              title: "Reliability",
+              content:
+                "<p>Downtime is not an option. We build robust, scalable systems that our clients can depend on.</p>",
+            },
+          ],
         },
       ],
       seo: {
@@ -145,6 +290,18 @@ const SEED_CONFIG = {
           __component: "sections.rich-text",
           content:
             "<p>Email us at <a href='mailto:hello@example.com'>hello@example.com</a> or follow us on social media.</p>",
+        },
+        {
+          __component: "sections.lead-form",
+          title: "Subscribe to Our Newsletter",
+          description:
+            "Stay up to date with our latest articles and product updates.",
+          emailPlaceholder: "Enter your email address",
+          location: "https://example.com/api/subscribe",
+          submitButton: {
+            text: "Subscribe",
+            type: "primary",
+          },
         },
       ],
       seo: {
@@ -172,6 +329,12 @@ const SEED_CONFIG = {
           __component: "shared.rich-text",
           body: "<p>Welcome to our blog! We will be sharing insights, tutorials, and updates here. Stay tuned!</p>",
         },
+        {
+          __component: "shared.quote",
+          title: "A Word from Our Team",
+          body: "The best way to predict the future is to build it. Every line of code we write is a step toward a better web.",
+          author: "Alice Writer, Lead Developer",
+        },
       ],
     },
     {
@@ -181,8 +344,11 @@ const SEED_CONFIG = {
       blocks: [
         {
           __component: "shared.rich-text",
-          body:
-            "<p>Strapi is an open-source headless CMS that makes it easy to create and manage content. In this post we cover installation, content types, and the REST API.</p>",
+          body: "<p>Strapi is an open-source headless CMS that makes it easy to create and manage content. In this post we cover installation, content types, and the REST API.</p>",
+        },
+        {
+          __component: "shared.video-embed",
+          url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         },
       ],
     },
@@ -193,8 +359,10 @@ const SEED_CONFIG = {
       blocks: [
         {
           __component: "shared.rich-text",
-          body:
-            "<p>Next.js App Router, Server Components, and caching strategies can dramatically improve your site performance. Here are our favorite tips.</p>",
+          body: "<p>Next.js App Router, Server Components, and caching strategies can dramatically improve your site performance. Here are our favorite tips.</p>",
+        },
+        {
+          __component: "shared.media",
         },
       ],
     },
@@ -228,21 +396,24 @@ async function uploadImage(strapi, imagePath, options = {}) {
   const stats = fs.statSync(absPath);
   const mime = getMimeType(name);
 
-  const [result] = await strapi.plugin("upload").service("upload").upload({
-    data: {
-      fileInfo: {
-        name,
-        alternativeText: options.alternativeText || name,
-        caption: options.caption || "",
+  const [result] = await strapi
+    .plugin("upload")
+    .service("upload")
+    .upload({
+      data: {
+        fileInfo: {
+          name,
+          alternativeText: options.alternativeText || name,
+          caption: options.caption || "",
+        },
       },
-    },
-    files: {
-      path: absPath,
-      name,
-      type: mime,
-      size: stats.size,
-    },
-  });
+      files: {
+        path: absPath,
+        name,
+        type: mime,
+        size: stats.size,
+      },
+    });
 
   console.log(`Uploaded image: ${name} (id: ${result.id})`);
   return result;
@@ -275,22 +446,18 @@ async function seedAdmin(strapi) {
     roles: [superAdminRole.id],
   });
 
-  console.log(`Created admin user: ${user.email} / ${SEED_CONFIG.admin.password}`);
+  console.log(
+    `Created admin user: ${user.email} / ${SEED_CONFIG.admin.password}`,
+  );
   return user;
 }
 
-async function seedGlobal(strapi) {
+async function seedGlobal(strapi, faviconFile) {
   const existing = await strapi.entityService.findOne("api::global.global", 1);
   if (existing) {
     console.log("Global config already exists.");
     return existing;
   }
-
-  const faviconFile = await uploadImage(strapi, "../favicon.png", {
-    alternativeText: "Site favicon",
-  });
-
-  const logoFile = faviconFile;
 
   const global = await strapi.entityService.create("api::global.global", {
     data: {
@@ -299,11 +466,17 @@ async function seedGlobal(strapi) {
       navbar: {
         ...SEED_CONFIG.global.navbar,
         navbarLogo: {
-          logoImg: logoFile.id,
+          logoImg: faviconFile.id,
           logoText: SEED_CONFIG.global.navbar.navbarLogo.logoText,
         },
       },
-      footer: SEED_CONFIG.global.footer,
+      footer: {
+        ...SEED_CONFIG.global.footer,
+        footerLogo: {
+          logoImg: faviconFile.id,
+          logoText: "MySite",
+        },
+      },
     },
   });
 
@@ -311,7 +484,7 @@ async function seedGlobal(strapi) {
   return global;
 }
 
-async function seedPages(strapi) {
+async function seedPages(strapi, faviconFile) {
   const results = [];
   for (const pageData of SEED_CONFIG.pages) {
     const existing = await strapi.db.query("api::page.page").findOne({
@@ -323,8 +496,27 @@ async function seedPages(strapi) {
       continue;
     }
 
+    const data = {
+      ...pageData,
+      contentSections: pageData.contentSections.map((section) => {
+        if (section.__component === "sections.hero") {
+          return { ...section, picture: faviconFile.id };
+        }
+        if (section.__component === "sections.testimonials-group") {
+          return {
+            ...section,
+            testimonials: section.testimonials.map((t) => ({
+              ...t,
+              picture: faviconFile.id,
+            })),
+          };
+        }
+        return section;
+      }),
+    };
+
     const page = await strapi.entityService.create("api::page.page", {
-      data: pageData,
+      data,
     });
     console.log(`Created page: ${page.slug}`);
     results.push(page);
@@ -374,7 +566,7 @@ async function seedAuthors(strapi) {
   return results;
 }
 
-async function seedArticles(strapi, categories, authors) {
+async function seedArticles(strapi, categories, authors, faviconFile) {
   const results = [];
   for (let i = 0; i < SEED_CONFIG.articles.length; i++) {
     const articleData = SEED_CONFIG.articles[i];
@@ -390,12 +582,20 @@ async function seedArticles(strapi, categories, authors) {
     const category = categories[i % categories.length];
     const author = authors[i % authors.length];
 
+    const data = {
+      ...articleData,
+      blocks: articleData.blocks.map((block) => {
+        if (block.__component === "shared.media") {
+          return { ...block, file: faviconFile.id };
+        }
+        return block;
+      }),
+      category: category.id,
+      authorsBio: author.id,
+    };
+
     const article = await strapi.entityService.create("api::article.article", {
-      data: {
-        ...articleData,
-        category: category.id,
-        authorsBio: author.id,
-      },
+      data,
     });
     console.log(`Created article: ${article.title}`);
     results.push(article);
@@ -414,12 +614,16 @@ async function run() {
 
   console.log("Seeding data...\n");
 
+  const faviconFile = await uploadImage(strapi, "../favicon.png", {
+    alternativeText: "Site favicon",
+  });
+
   await seedAdmin(strapi);
-  await seedGlobal(strapi);
-  const pages = await seedPages(strapi);
+  await seedGlobal(strapi, faviconFile);
+  const pages = await seedPages(strapi, faviconFile);
   const categories = await seedCategories(strapi);
   const authors = await seedAuthors(strapi);
-  await seedArticles(strapi, categories, authors);
+  await seedArticles(strapi, categories, authors, faviconFile);
 
   console.log("\nDone!");
   console.log("Admin panel: http://localhost:1337/admin");
