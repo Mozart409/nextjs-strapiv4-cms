@@ -3,12 +3,27 @@ pre-commit:
   commands:
     biome:
       tags: frontend style
-      glob: '*.{js,ts,jsx,tsx,json,yaml,yml,md}'
-      run: dprint fmt
+      glob: '*.{js,ts,jsx,tsx,json,jsonc}'
+      run: biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    dprint:
+      tags: style
+      glob: '{*.md,*.markdown,*.toml,*Dockerfile,*.dockerfile}'
+      run: dprint fmt {staged_files}
+      stage_fixed: true
     keep-sorted:
       tags: frontend style
-      glob: '*.{js,ts,jsx,tsx}'
       run: keep-sorted {staged_files}
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  commands:
+    biome:
+      tags: frontend style
+      glob: '*.{js,ts,jsx,tsx,json,jsonc}'
+      run: biome check --no-errors-on-unmatched .
+
 commit-msg:
   jobs:
     - name: cog verify
