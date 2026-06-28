@@ -201,6 +201,53 @@ const SEED_CONFIG = {
   ],
 };
 
+function getMimeType(filename) {
+  const ext = path.extname(filename).toLowerCase();
+  const map = {
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".gif": "image/gif",
+    ".svg": "image/svg+xml",
+    ".webp": "image/webp",
+    ".ico": "image/x-icon",
+  };
+  return map[ext] || "application/octet-stream";
+}
+
+async function uploadImage(strapi, imagePath, options = {}) {
+  const absPath = imagePath.startsWith("/")
+    ? imagePath
+    : path.resolve(__dirname, imagePath);
+
+  if (!fs.existsSync(absPath)) {
+    throw new Error(`File not found: ${absPath}`);
+  }
+
+  const name = path.basename(absPath);
+  const stats = fs.statSync(absPath);
+  const mime = getMimeType(name);
+
+  const [result] = await strapi.plugin("upload").service("upload").upload({
+    data: {
+      fileInfo: {
+        name,
+        alternativeText: options.alternativeText || name,
+        caption: options.caption || "",
+      },
+    },
+    files: {
+      path: absPath,
+      name,
+      type: mime,
+      size: stats.size,
+    },
+  });
+
+  console.log(`Uploaded image: ${name} (id: ${result.id})`);
+  return result;
+}
+
 async function seedAdmin(strapi) {
   const existing = await strapi.db.query("admin::user").findOne({
     where: { email: SEED_CONFIG.admin.email },
@@ -239,10 +286,23 @@ async function seedGlobal(strapi) {
     return existing;
   }
 
+  const faviconFile = await uploadImage(strapi, "../favicon.png", {
+    alternativeText: "Site favicon",
+  });
+
+  const logoFile = faviconFile;
+
   const global = await strapi.entityService.create("api::global.global", {
     data: {
+      favicon: faviconFile.id,
       metadata: SEED_CONFIG.global.metadata,
-      navbar: SEED_CONFIG.global.navbar,
+      navbar: {
+        ...SEED_CONFIG.global.navbar,
+        navbarLogo: {
+          logoImg: logoFile.id,
+          logoText: SEED_CONFIG.global.navbar.navbarLogo.logoText,
+        },
+      },
       footer: SEED_CONFIG.global.footer,
     },
   });
