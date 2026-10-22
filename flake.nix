@@ -96,7 +96,7 @@
             pnpm
             podman
             podman-compose
-            postgresql_16
+            postgresql_18
             trivy
             typescript
             # keep-sorted end
