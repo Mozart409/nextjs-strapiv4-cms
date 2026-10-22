@@ -3,7 +3,7 @@
 # Workspace only contains apps/backend
 
 ARG NODE_VERSION=24
-ARG PNPM_VERSION=10.29.2
+ARG PNPM_VERSION=12.9.0
 
 # ─── Build stage ───
 FROM node:${NODE_VERSION}-alpine AS build
