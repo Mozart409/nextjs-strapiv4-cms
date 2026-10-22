@@ -10,7 +10,6 @@ Originally forked from [strapi/nextjs-corporate-starter](https://github.com/stra
 - **PostgreSQL** 18 (local via Podman Compose)
 - **Node** 22–24, **pnpm** 12
 - **Uploads**: local in development, AWS S3 in production
-- **Email**: SendGrid
 
 ## Repository layout
 
@@ -57,7 +56,6 @@ cp apps/backend/.env.example apps/backend/.env
 | `APP_KEYS`, `API_TOKEN_SALT`, `ADMIN_JWT_SECRET`, `TRANSFER_TOKEN_SALT`                     | Strapi secrets                       |
 | `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD` | PostgreSQL connection                |
 | `STRAPI_URL`                                                                                | Public URL of the backend            |
-| `SENDGRID_API_KEY`, `DEFAULT_FROM_EMAIL`, `DEFAULT_REPLAY_EMAIL`                            | Email provider                       |
 | `AWS_ACCESS_KEY_ID`, `AWS_ACCESS_SECRET`, `AWS_REGION`, `AWS_BUCKET`                        | S3 uploads (production only)         |
 
 ### 5. Run Strapi
