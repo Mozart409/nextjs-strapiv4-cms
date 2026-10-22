@@ -33,7 +33,7 @@
           pnpm
           podman
           podman-compose
-          postgresql_16
+          postgresql_18
           railway
           trivy
           typescript
