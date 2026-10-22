@@ -15,7 +15,7 @@
     "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.0"
+    "@biomejs/biome": "^2.5.15"
   },
   "packageManager": "pnpm@12.9.0"
 }
