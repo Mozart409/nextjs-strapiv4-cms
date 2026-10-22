@@ -21,7 +21,6 @@
         buildInputs = with pkgs; [
           # keep-sorted start
           biome
-          claude-code
           cocogitto
           dive
           dprint
@@ -31,11 +30,9 @@
           lazydocker
           lefthook
           ni
-          opencode
-          pnpm_10_29_2
+          pnpm
           podman
           podman-compose
-          podman-tui
           postgresql_16
           railway
           trivy
