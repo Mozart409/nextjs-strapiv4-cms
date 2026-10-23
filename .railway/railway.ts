@@ -10,10 +10,12 @@ export default defineRailway(() => {
     source: github("Romo61/nextjs-strapiv4-cms", {
       branch: "main",
       checkSuites: false,
-      rootDirectory: "/apps/backend",
     }),
     build: {
-      builder: "RAILPACK",
+      // The Dockerfile copies the workspace manifests, so it builds with the
+      // repository root as context rather than a root directory.
+      builder: "DOCKERFILE",
+      dockerfilePath: "apps/backend/Dockerfile",
       // Monorepo: only redeploy when the backend or the workspace manifests
       // change. Patterns match from the repository root, not the root directory.
       watchPatterns: [
