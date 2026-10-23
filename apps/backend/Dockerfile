@@ -36,8 +36,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/backend/package.json ./apps/backend/
 
 # Install all dependencies (backend is the only workspace package)
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 ENV PATH=/opt/node_modules/.bin:$PATH
 
@@ -72,8 +71,8 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/backend/package.json ./apps/backend/
 
 # Install ONLY production dependencies (no devDependencies, no build tools)
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --frozen-lockfile --prod
+RUN pnpm install --frozen-lockfile --prod && \
+    rm -rf "$(pnpm store path)"
 
 # Remove esbuild and other build-only Go binaries that carry CVEs but are not needed at runtime.
 # The admin panel is already built in the build stage; esbuild is only a build tool.
