@@ -103,4 +103,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD curl -f http://localhost:1337/_health || exit 1
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["pnpm", "start"]
+CMD ["strapi", "start"]

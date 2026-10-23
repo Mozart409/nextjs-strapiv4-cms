@@ -25,10 +25,13 @@ export default defineRailway(() => {
         "/pnpm-workspace.yaml",
       ],
     },
-    start: "pnpm start",
+    // Call strapi directly: pnpm 12 runs an install before scripts, which fails
+    // on the root-owned node_modules and downloads pnpm via corepack on boot.
+    start: "strapi start",
     // Strapi v5 answers GET /_health with 204.
     healthcheck: "/_health",
-    healthcheckTimeout: 300,
+    // The first boot after the v4 → v5 upgrade runs data migrations for 5+ min.
+    healthcheckTimeout: 900,
     replicas: { "europe-west4-drams3a": 1 },
     deploy: {
       limitOverride: {
