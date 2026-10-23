@@ -44,7 +44,7 @@ export default defineRailway(() => {
           memoryDescription: "8 GB",
         },
       },
-      sleepApplication: true,
+      sleepApplication: false,
       // Zero-downtime deploys: keep the old deploy serving while the new one
       // boots, then give it a grace period after SIGTERM before SIGKILL.
       overlapSeconds: 30,
