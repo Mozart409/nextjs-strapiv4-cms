@@ -172,7 +172,7 @@ overrides:
   fast-uri: ^4.2.2
   form-data: ^4.0.6
   undici: ^8.12.1
-  vite: ^6.4.5
+  vite: 6.4.4
   ws: ^8.22.0
   tmp: ^0.2.7
   nodemailer: ^10.1.1
@@ -3364,7 +3364,7 @@ packages:
   '@tailwindcss/vite@4.3.3':
     resolution: {integrity: sha512-yYU8cogLeSh/ms2jh8Fj7jaba/EWa7Ja6GoUqYZaraEuCI5YS6ms6ObZgjjedm+jm6XZjdNRWBpPP6Z86oOxcw==}
     peerDependencies:
-      vite: ^6.4.5
+      vite: 6.4.4
 
   '@tanstack/react-virtual@3.13.21':
     resolution: {integrity: sha512-SYXFrmrbPgXBvf+HsOsKhFgqSe4M6B29VHOsX9Jih9TlNkNkDWx0hWMiMLUghMEzyUz772ndzdEeCEBx+3GIZw==}
@@ -3632,7 +3632,7 @@ packages:
   '@vitejs/plugin-react-swc@3.11.0':
     resolution: {integrity: sha512-YTJCGFdNMHCMfjODYtxRNVAYmTWQ1Lb8PulP/2/f/oEEtglw8oKxKIZmmRkyXrVrHfsKOaVkAc3NT9/dMutO5w==}
     peerDependencies:
-      vite: ^6.4.5
+      vite: 6.4.4
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -7432,8 +7432,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite@6.4.5:
-    resolution: {integrity: sha512-4enwjFfi4IwtEh0w+jPzpLVOFQiPHmmzPxcHXQOyEur47o6u0jE573DmGpjA+7irXoMLYRZD5ZaFUEneS3abPg==}
+  vite@6.4.4:
+    resolution: {integrity: sha512-xGjU/SyjeNyb0E4KxXBvYz/1C+3JXuujvf2hXNOtnlcE+58o5ajd9N2/n2VhkiJvpCP2qQasnUpx5PXNeI+p1Q==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -11451,8 +11451,8 @@ snapshots:
       '@strapi/typescript-utils': 5.58.0
       '@strapi/upload': 5.58.0(ff44d7eb0a05b6bf1d4a0710d7b86b83)
       '@strapi/utils': 5.58.0(ts-toolbelt@9.6.0)
-      '@tailwindcss/vite': 4.3.3(vite@6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))
-      '@vitejs/plugin-react-swc': 3.11.0(@swc/helpers@0.5.19)(vite@6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))
+      '@tailwindcss/vite': 4.3.3(vite@6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))
+      '@vitejs/plugin-react-swc': 3.11.0(@swc/helpers@0.5.19)(vite@6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))
       boxen: 5.1.2
       browserslist: 4.29.3
       browserslist-to-esbuild: 2.1.1(browserslist@4.29.3)
@@ -11489,7 +11489,7 @@ snapshots:
       styled-components: 6.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwindcss: 4.3.3
       typescript: 5.9.3
-      vite: 6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
+      vite: 6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
       webpack: 5.109.2(@swc/core@1.15.18(@swc/helpers@0.5.19))(clean-css@5.3.3)(esbuild@0.28.2)(html-minifier-terser@6.1.0)(lightningcss@1.32.0)(postcss@8.5.30)(sharp@0.35.5(@types/node@25.3.5))(uglify-js@3.19.3)
       webpack-bundle-analyzer: 5.3.0
       webpack-dev-middleware: 7.4.6(webpack@5.109.2(@swc/core@1.15.18(@swc/helpers@0.5.19))(clean-css@5.3.3)(esbuild@0.28.2)(html-minifier-terser@6.1.0)(lightningcss@1.32.0)(postcss@8.5.30)(sharp@0.35.5(@types/node@25.3.5))(uglify-js@3.19.3))
@@ -11854,12 +11854,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.3
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.3
 
-  '@tailwindcss/vite@4.3.3(vite@6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))':
+  '@tailwindcss/vite@4.3.3(vite@6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))':
     dependencies:
       '@tailwindcss/node': 4.3.3
       '@tailwindcss/oxide': 4.3.3
       tailwindcss: 4.3.3
-      vite: 6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
+      vite: 6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
 
   '@tanstack/react-virtual@3.13.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -12205,11 +12205,11 @@ snapshots:
 
   '@vercel/stega@0.1.2': {}
 
-  '@vitejs/plugin-react-swc@3.11.0(@swc/helpers@0.5.19)(vite@6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))':
+  '@vitejs/plugin-react-swc@3.11.0(@swc/helpers@0.5.19)(vite@6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@swc/core': 1.15.18(@swc/helpers@0.5.19)
-      vite: 6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
+      vite: 6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -16255,7 +16255,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.4.5(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1):
+  vite@6.4.4(@types/node@25.3.5)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.9.1):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.7)
