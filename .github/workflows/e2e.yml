@@ -3,6 +3,9 @@ name: E2E
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 concurrency:
   group: e2e-${{ github.ref }}
   cancel-in-progress: true
