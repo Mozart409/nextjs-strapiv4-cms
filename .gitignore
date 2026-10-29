@@ -15,3 +15,5 @@ seed-data/
 
 /playwright-report/
 /test-results/
+/strapi-metrics.json
+/http-logs.json
