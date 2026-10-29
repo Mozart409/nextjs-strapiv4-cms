@@ -93,11 +93,12 @@ The API is available over REST (`/api/...`) and GraphQL (`/graphql`). Create API
 | `pnpm build:backend` | Build the production image with Podman               |
 | `pnpm scan:backend`  | Build the image and scan it with trivy and kics      |
 | `pnpm fmt`           | Format backend sources with dprint                   |
+| `pnpm test:e2e`      | Run the Playwright E2E suite against Strapi on :1337 |
 | `just update`        | Update `flake.lock` and commit it                    |
 
 ## Deployment
 
-The backend runs as a single Railway service defined in [`.railway/railway.ts`](.railway/railway.ts). It builds `apps/backend` with Railpack, starts with `pnpm start`, health-checks `/_health` and only redeploys when the backend or workspace manifests change. The file is a named partial: Postgres, Redis and the backup cron are managed in the Railway dashboard, and secrets stay in Railway.
+The backend runs as a single Railway service defined in [`.railway/railway.ts`](.railway/railway.ts). It builds `apps/backend` with Railpack, starts with `pnpm start`, health-checks `/_health` and only redeploys when the backend or workspace manifests change. The file is a named partial: Postgres and the backup cron are managed in the Railway dashboard, and secrets stay in Railway.
 
 ```bash
 railway config plan    # preview changes

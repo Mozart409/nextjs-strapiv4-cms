@@ -2,7 +2,7 @@ import { defineRailway, github, project, service } from "railway/iac";
 
 // This repository is the source of exactly one Railway service, so it declares a
 // named partial: it owns that service and leaves everything else in the
-// environment (Backup CRON, Redis, Postgres and their volumes) to the dashboard.
+// environment (Backup CRON, Postgres and its volume) to the dashboard.
 export const partial = "nextjs-strapiv4-cms";
 
 export default defineRailway(() => {

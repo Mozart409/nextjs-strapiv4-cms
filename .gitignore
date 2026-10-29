@@ -12,3 +12,6 @@ seed-data/
 /apps/backend/types/generated
 /.claude/settings.local.json
 /prod-v4.dump
+
+/playwright-report/
+/test-results/
