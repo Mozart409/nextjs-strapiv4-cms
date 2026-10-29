@@ -37,11 +37,11 @@ export default defineRailway(() => {
       limitOverride: {
         containers: {
           cpu: 1,
-          cpuDescription: "8 vCPU",
+          cpuDescription: "1 vCPU",
           diskBytes: 100000000000,
           diskDescription: "100 GB",
           memoryBytes: 1000000000,
-          memoryDescription: "8 GB",
+          memoryDescription: "1 GB",
         },
       },
       sleepApplication: false,
