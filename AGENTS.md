@@ -5,7 +5,7 @@ Strapi 5 headless CMS backend (PostgreSQL 18, pnpm workspace) deployed to Railwa
 ## Layout
 
 - `apps/backend/`: Strapi app (config, content types, `scripts/seed.js`, Dockerfile)
-- `.railway/railway.ts`: Railway infrastructure as code (named partial; Postgres, Redis and backup cron live in the dashboard)
+- `.railway/railway.ts`: Railway infrastructure as code (named partial; Postgres and the backup cron live in the dashboard)
 - `pnpm-workspace.yaml`: workspace config, including `overrides` for transitive security fixes
 
 ## Commands
