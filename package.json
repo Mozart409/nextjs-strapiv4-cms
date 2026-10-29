@@ -12,10 +12,13 @@
     "scan:backend": "pnpm run build:backend && trivy image --exit-code 1 --severity HIGH,CRITICAL nextjs-strapiv4-cms/backend && kics scan -p apps/backend/Dockerfile --no-progress --fail-on critical",
     "up": "podman compose up -d",
     "down": "podman compose down",
-    "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'"
+    "fmt": "dprint fmt 'apps/backend/**/*.{ts,tsx,js,jsx,json}'",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
+    "@playwright/test": "1.64.1",
+    "pg": "8.23.1",
     "railway": "3.16.0"
   },
   "packageManager": "pnpm@12.9.0"

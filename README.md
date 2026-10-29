@@ -93,6 +93,7 @@ The API is available over REST (`/api/...`) and GraphQL (`/graphql`). Create API
 | `pnpm build:backend` | Build the production image with Podman               |
 | `pnpm scan:backend`  | Build the image and scan it with trivy and kics      |
 | `pnpm fmt`           | Format backend sources with dprint                   |
+| `pnpm test:e2e`      | Run the Playwright E2E suite against Strapi on :1337 |
 | `just update`        | Update `flake.lock` and commit it                    |
 
 ## Deployment

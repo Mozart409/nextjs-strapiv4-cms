@@ -103,6 +103,13 @@
           ])
           ++ [ railway ];
 
+        # Playwright's downloaded browsers do not run on NixOS; use the nixpkgs
+        # build. playwright-driver.version must equal @playwright/test in the
+        # root package.json, or Playwright looks for a different browser revision.
+        PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1";
+        PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+
         shellHook = ''
           # Install Git hooks with lefthook on shell entry
           if [ -f lefthook.yml ]; then
